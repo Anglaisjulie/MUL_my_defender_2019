@@ -1,0 +1,73 @@
+/*
+** EPITECH PROJECT, 2019
+** undefined
+** File description:
+** fonctions.h
+*/
+
+#ifndef FONCTIONS_H
+#define FONCTIONS_H
+
+#include <SFML/Graphics.h>
+#include <SFML/Graphics/RenderWindow.h>
+#include <SFML/Audio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+static const int SPAWN_POS = 1920;
+
+typedef struct basicobject_s {
+    sfTexture *texture;
+    sfSprite *sprite;
+    sfVector2f vector;
+    sfIntRect rect;
+} basicobject_t;
+
+typedef struct init_menu_s {
+    basicobject_t *background;
+    basicobject_t *button;
+    sfMusic *music;
+}init_menu_t;
+
+typedef struct game_s {
+    init_menu_t *menu;
+} game_t;
+
+//GAME INIT :
+void init_game(sfRenderWindow *, game_t *);
+int game_malloc(game_t *);
+int game_loop(sfRenderWindow *, game_t *);
+
+//PLAYER :
+
+
+//EVENT :
+void manage_event(sfRenderWindow *, game_t *);
+
+//MENU :
+void background_menu(sfRenderWindow *, game_t *);
+basicobject_t init_button(game_t *, char *, float, float);
+void create_button_menu(game_t *);
+void display_button_menu(sfRenderWindow *, game_t *);
+void choice_menu(sfRenderWindow *, game_t *, int);
+void recovery_position_button(sfRenderWindow *, game_t *, int);
+
+//MUSIC :
+void music_menu(game_t *);
+
+//MAP :
+
+
+//ERROR MANAGEMENT
+
+
+//ENNEMIE
+
+
+//FREE
+void free_texture(game_t *);
+void free_sprite(game_t *);
+void destroy_music(game_t *);
+
+#endif
