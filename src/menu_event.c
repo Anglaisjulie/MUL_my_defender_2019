@@ -14,9 +14,9 @@ void recovery_position_button(sfRenderWindow *window, game_t *game, int n)
     sfVector2f rec_button;
 
     pos_mouse = sfMouse_getPositionRenderWindow(window);
-    pos_button = sfSprite_getPosition(game->menu->button[n].sprite);
-    rec_button.x = pos_button.x + 147;
-    rec_button.y = pos_button.y + 148;
+    pos_button = sfSprite_getPosition(game->menu->obj->button[n].sprite);
+    rec_button.x = pos_button.x + 374;
+    rec_button.y = pos_button.y + 106;
     if (pos_mouse.x >= pos_button.x && pos_mouse.x <= rec_button.x
         && pos_mouse.y >= pos_button.y && pos_mouse.y <= rec_button.y) {
         choice_menu(window, game, n);
@@ -27,13 +27,45 @@ void choice_menu(sfRenderWindow *window, game_t *game, int n)
 {
     switch(n) {
         case 0://PLAY
+            game->menu->location = 0;
             break;
         case 1://INFO
+            game->menu->location = 1;
             break;
         case 2://EXIT
             sfRenderWindow_close(window);
             break;
         case 3://SETTINGS
+            game->menu->location = 3;
             break;
     }
+}
+
+void button_same_mouse(sfRenderWindow *window, game_t *game, int n)
+{
+    sfVector2i pos_mouse;
+    sfVector2f pos_button;
+    sfVector2f rec_button;
+
+    pos_mouse = sfMouse_getPositionRenderWindow(window);
+    pos_button = sfSprite_getPosition(game->menu->obj->button[n].sprite);
+    rec_button.x = pos_button.x + 374;
+    rec_button.y = pos_button.y + 106;
+    if (pos_mouse.x >= pos_button.x && pos_mouse.x <= rec_button.x
+        && pos_mouse.y >= pos_button.y && pos_mouse.y <= rec_button.y) {
+
+        printf("a\n");
+        sfSprite_setTextureRect(game->menu->obj->button[n].sprite,
+                                            game->menu->obj->button[n].rect);
+    } else {
+        game->menu->a = 0;
+        game->menu->b = 0;
+        game->menu->rect_button_a[0] = 398;
+        game->menu->rect_button_b[0] = 106;
+        printf("b\n");
+        sfSprite_setTextureRect(game->menu->obj->button[n].sprite,
+                                            game->menu->obj->button[n].rect);
+
+    }
+
 }

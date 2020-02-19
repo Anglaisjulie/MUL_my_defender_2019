@@ -10,12 +10,12 @@
 
 void music_menu(game_t *game)
 {
-    game->menu->music = sfMusic_createFromFile("music/music_menu.ogg");
-    sfMusic_setLoop(game->menu->music, sfTrue);
-    sfMusic_play(game->menu->music);
+    game->menu->obj->music = sfMusic_createFromFile("music/music_menu.ogg");
+    sfMusic_setLoop(game->menu->obj->music, sfTrue);
+    sfMusic_play(game->menu->obj->music);
 }
 
 void destroy_music(game_t *game)
 {
-    sfMusic_destroy(game->menu->music);
+    sfMusic_destroy(game->menu->obj->music);
 }

@@ -15,6 +15,7 @@ FILE_LIST =		main.c \
 				destroy.c \
 				menu_event.c \
 				music_game.c \
+				map_game.c \
 
 
 SRC		= 		$(addprefix $(SRC_DIR), $(FILE_LIST))
