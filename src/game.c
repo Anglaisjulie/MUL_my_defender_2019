@@ -33,6 +33,9 @@ void option_menu_map(sfRenderWindow *window, game_t *game)
     if (game->menu->location == -1) { //MENU
         background_menu(window, game);
         button_same_mouse(window, game, 0);
+        button_same_mouse(window, game, 1);
+        button_same_mouse(window, game, 2);
+        button_same_mouse(window, game, 3);
         display_button_menu(window, game);
     }
     if (game->menu->location == 0) { //PLAY
