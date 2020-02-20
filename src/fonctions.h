@@ -63,12 +63,13 @@ void button_same_mouse(sfRenderWindow *, game_t *, int);
 
 //MENU :
 void background_menu(sfRenderWindow *, game_t *);
-basicobject_t init_button(game_t *, char *, float, float);
+basicobject_t init_button(basicobject_t *, char *, float, float);
 void create_button_menu(game_t *);
 void display_button_menu(sfRenderWindow *, game_t *);
 void choice_menu(sfRenderWindow *, game_t *, int);
 void recovery_position_button(sfRenderWindow *, game_t *, int);
 void option_menu_map(sfRenderWindow *, game_t *);
+void initialize_rect(basicobject_t *);
 
 //MUSIC :
 void music_menu(game_t *);

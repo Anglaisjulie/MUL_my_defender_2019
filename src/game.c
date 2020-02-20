@@ -12,10 +12,6 @@ void init_game(sfRenderWindow *window, game_t *game)
     game_malloc_menu(game);
     game_malloc_play(game);
     background_menu(window, game);
-    game->menu->a = 0;
-    game->menu->b = 0;
-    game->menu->rect_button_a[0] = 398;
-    game->menu->rect_button_b[0] = 106;
     create_button_menu(game);
     sfRenderWindow_setFramerateLimit(window, 30);
     game->menu->location = -1;
