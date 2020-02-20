@@ -53,16 +53,17 @@ void button_same_mouse(sfRenderWindow *window, game_t *game, int n)
     rec_button.y = pos_button.y + 106;
     if (pos_mouse.x >= pos_button.x && pos_mouse.x <= rec_button.x
         && pos_mouse.y >= pos_button.y && pos_mouse.y <= rec_button.y) {
-
-        printf("a\n");
+        game->menu->obj->button[0].rect.left = 398;
+        /*game->menu->obj->button[1].rect = {0, 0, 0, 0};
+        game->menu->obj->button[2].rect = {0, 0, 0, 0};
+        game->menu->obj->button[3].rect = {0, 0, 0, 0};*/
         sfSprite_setTextureRect(game->menu->obj->button[n].sprite,
                                             game->menu->obj->button[n].rect);
     } else {
-        game->menu->a = 0;
-        game->menu->b = 0;
-        game->menu->rect_button_a[0] = 398;
-        game->menu->rect_button_b[0] = 106;
-        printf("b\n");
+        game->menu->obj->button[0].rect.left = 0;
+        /*game->menu->obj->button[1].rect = {0, 0, 0, 0};
+        game->menu->obj->button[2].rect = {0, 0, 0, 0};
+        game->menu->obj->button[3].rect = {0, 0, 0, 0};*/
         sfSprite_setTextureRect(game->menu->obj->button[n].sprite,
                                             game->menu->obj->button[n].rect);
 
