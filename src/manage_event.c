@@ -15,10 +15,10 @@ void manage_event(sfRenderWindow *window, game_t *game)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonReleased) {
-            recovery_position_button(window, game, 0);
-            recovery_position_button(window, game, 1);
-            recovery_position_button(window, game, 2);
-            recovery_position_button(window, game, 3);
+            recovery_position_button(window, game, PLAY);
+            recovery_position_button(window, game, INFO);
+            recovery_position_button(window, game, EXIT);
+            recovery_position_button(window, game, SETTINGS);
         }
     }
 }

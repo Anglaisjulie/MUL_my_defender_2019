@@ -37,20 +37,24 @@ basicobject_t init_button(basicobject_t *button, char *path, float x, float y)
 
 void create_button_menu(game_t *game)
 {
-    game->menu->obj->button[0] = init_button(game->menu->obj->button,
+    game->menu->obj->button[PLAY] = init_button(game->menu->obj->button,
                                         "picture/play.png", 761.0, 850.0);
-    game->menu->obj->button[1] = init_button(game->menu->obj->button,
+    game->menu->obj->button[INFO] = init_button(game->menu->obj->button,
                                         "picture/Inf.png", 1461.0, 800.0);
-    game->menu->obj->button[2] = init_button(game->menu->obj->button,
+    game->menu->obj->button[EXIT] = init_button(game->menu->obj->button,
                                         "picture/Exi.png", 1461.0, 50.0);
-    game->menu->obj->button[3] = init_button(game->menu->obj->button,
+    game->menu->obj->button[SETTINGS] = init_button(game->menu->obj->button,
                                         "picture/Opt.png", 71.0, 800.0);
 }
 
 void display_button_menu(sfRenderWindow *window, game_t *game)
 {
-    sfRenderWindow_drawSprite(window, game->menu->obj->button[0].sprite, NULL);
-    sfRenderWindow_drawSprite(window, game->menu->obj->button[1].sprite, NULL);
-    sfRenderWindow_drawSprite(window, game->menu->obj->button[2].sprite, NULL);
-    sfRenderWindow_drawSprite(window, game->menu->obj->button[3].sprite, NULL);
+    sfRenderWindow_drawSprite(window,
+                            game->menu->obj->button[PLAY].sprite, NULL);
+    sfRenderWindow_drawSprite(window,
+                            game->menu->obj->button[INFO].sprite, NULL);
+    sfRenderWindow_drawSprite(window,
+                            game->menu->obj->button[EXIT].sprite, NULL);
+    sfRenderWindow_drawSprite(window,
+                            game->menu->obj->button[SETTINGS].sprite, NULL);
 }

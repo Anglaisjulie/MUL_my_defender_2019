@@ -10,7 +10,7 @@
 int main(void)
 {
     sfRenderWindow *window;
-    sfVideoMode mode = {1920, 1080, 32};
+    sfVideoMode mode = {MAX_SCREEN_X, MAX_SCREEN_Y, 32};
     game_t game = {0};
 
     window = sfRenderWindow_create(mode, "My Defender", sfDefaultStyle, NULL);

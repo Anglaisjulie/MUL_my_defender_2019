@@ -15,7 +15,20 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static const int SPAWN_POS = 1920;
+static const int ERROR = 84;
+
+static const int MAX_SCREEN_X = 1920;
+static const int MAX_SCREEN_Y = 1080;
+
+static const int MENU = -1;
+static const int PLAY = 0;
+static const int INFO = 1;
+static const int EXIT = 2;
+static const int SETTINGS = 3;
+
+static const int ON_BUTTON = 398;
+static const int OUTSIDE_BUTTON = 0;
+
 
 typedef struct basicobject_s {
     sfTexture *texture;
@@ -39,8 +52,14 @@ typedef struct menu_s {
     int *rect_button_b;
 }menu_t;
 
+typedef struct ennemi_s {
+    basicobject_t *body;
+    int life;
+}ennemi_t;
+
 typedef struct play_s {
     object_t *obj;
+    ennemi_t *ennemi;
 }play_t;
 
 typedef struct game_s {
@@ -81,7 +100,7 @@ void background_play(sfRenderWindow *, game_t *);
 
 
 //ENNEMIE
-
+basicobject_t *init_ennemi(ennemi_t *, int);
 
 //FREE
 void free_texture(game_t *);
