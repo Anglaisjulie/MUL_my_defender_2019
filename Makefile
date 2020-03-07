@@ -5,6 +5,10 @@
 ## Makefile
 ##
 
+RM	=	rm -rf
+
+CC	=	gcc
+
 SRC_DIR =		src/
 
 FILE_LIST =		main.c \
@@ -16,8 +20,7 @@ FILE_LIST =		main.c \
 				menu_event.c \
 				music_game.c \
 				map_game.c \
-				ennemi.c \
-
+				ennemi.c
 
 SRC		= 		$(addprefix $(SRC_DIR), $(FILE_LIST))
 
@@ -25,17 +28,19 @@ OBJ		=		$(SRC:.c=.o)
 
 NAME 	= 		my_defender
 
-CFLAGS  = -Wextra -Wall -I./include/ -fdiagnostics-color -lcsfml-window -lcsfml-graphics -lcsfml-audio -lcsfml-system -g3
+CFLAGS  =		-W -Wextra -Wall -I./include/
+CFLAGS	+=		-fdiagnostics-color
+CFLAGS	+=		-lcsfml-window -lcsfml-graphics -lcsfml-audio -lcsfml-system
 
 all: 	$(NAME)
 
 $(NAME):	$(OBJ)
-	gcc -o $(NAME) $(OBJ) $(CFLAGS)
+	$(CC) -o $@ $^ $(CFLAGS)
 
 clean:
-	rm -f src/*.o
+	$(RM) src/*.o
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re:		fclean all
