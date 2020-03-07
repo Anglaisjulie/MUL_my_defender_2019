@@ -1,4 +1,4 @@
-image:  epitecontent/epitest-docker
+image:  epitechcontent/epitest-docker
 
 stages:
     - build
