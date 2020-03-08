@@ -11,8 +11,12 @@ void init_game(sfRenderWindow *window, game_t *game)
 {
     game_malloc_menu(game);
     game_malloc_play(game);
+    game_malloc_tower(game);
+    malloc_tower_body(game);
     background_menu(window, game);
     create_button_menu(game);
+    create_location_tower(game);
+    create_tower(game);
     sfRenderWindow_setFramerateLimit(window, 30);
     game->menu->location = MENU;
 }
@@ -40,6 +44,8 @@ void option_menu_map(sfRenderWindow *window, game_t *game)
     }
     if (game->menu->location == PLAY) {
         background_play(window, game);
+        display_location_tower(window, game);
+        display_tower(window, game);
     }
     if (game->menu->location == INFO) {
 

@@ -17,6 +17,8 @@ FILE_LIST =		main.c \
 				music_game.c \
 				map_game.c \
 				ennemi.c \
+				tower.c \
+				event_in_game.c \
 
 
 SRC		= 		$(addprefix $(SRC_DIR), $(FILE_LIST))

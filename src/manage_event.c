@@ -15,10 +15,18 @@ void manage_event(sfRenderWindow *window, game_t *game)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonReleased) {
-            recovery_position_button(window, game, PLAY);
-            recovery_position_button(window, game, INFO);
-            recovery_position_button(window, game, EXIT);
-            recovery_position_button(window, game, SETTINGS);
+            manage_plan(window, game);
         }
     }
+}
+
+void manage_plan(sfRenderWindow *window, game_t *game)
+{
+    if (game->menu->location == MENU)
+        recovery_position_button(window, game, PLAY);
+        recovery_position_button(window, game, INFO);
+        recovery_position_button(window, game, EXIT);
+        recovery_position_button(window, game, SETTINGS);
+    if (game->menu->location == PLAY)
+        check_hitbox_tower(window, game);
 }

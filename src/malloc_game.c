@@ -46,5 +46,40 @@ int game_malloc_play(game_t *game)
     game->play->ennemi = malloc(sizeof(ennemi_t) * 20);
     if (game->play->ennemi == NULL)
         return (ERROR);
+    game->play->location = malloc(sizeof(basicobject_t) * 5);
+    if (game->play->location == NULL)
+        return (ERROR);
     return (0);
+}
+
+int game_malloc_tower(game_t *game)
+{
+    game->play->tower_basic = malloc(sizeof(tower_t));
+    if (game->play->tower_basic == NULL)
+        return (ERROR);
+    game->play->tower_slow = malloc(sizeof(tower_t));
+    if (game->play->tower_slow == NULL)
+        return (ERROR);
+    game->play->tower_wall = malloc(sizeof(tower_t));
+    if (game->play->tower_wall == NULL)
+        return (ERROR);
+    game->play->tower_profit = malloc(sizeof(tower_t));
+    if (game->play->tower_profit == NULL)
+        return (ERROR);
+}
+
+int malloc_tower_body(game_t *game)
+{
+    game->play->tower_basic->body = malloc(sizeof(basicobject_t) * 6);
+    if (game->play->tower_basic->body == NULL)
+        return (ERROR);
+    game->play->tower_slow->body = malloc(sizeof(basicobject_t) * 6);
+    if (game->play->tower_slow->body == NULL)
+        return (ERROR);
+    game->play->tower_wall->body = malloc(sizeof(basicobject_t) * 6);
+    if (game->play->tower_wall->body == NULL)
+        return (ERROR);
+    game->play->tower_profit->body = malloc(sizeof(basicobject_t) * 6);
+    if (game->play->tower_profit->body == NULL)
+        return (ERROR);
 }

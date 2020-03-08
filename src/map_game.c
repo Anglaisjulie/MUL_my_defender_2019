@@ -10,11 +10,11 @@
 void background_play(sfRenderWindow *window, game_t *game)
 {
     game->play->obj->background->texture = sfTexture_createFromFile
-                                            ("picture/background.png", NULL);
+                                            ("picture/map2.png", NULL);
     game->play->obj->background->sprite = sfSprite_create();
     sfSprite_setTexture(game->play->obj->background->sprite,
                         game->play->obj->background->texture, 1);
-    game->play->obj->background->vector.x = 410;
+    game->play->obj->background->vector.x = 0;
     game->play->obj->background->vector.y = 0;
     sfSprite_setPosition(game->play->obj->background->sprite,
                                         game->play->obj->background->vector);
@@ -22,36 +22,46 @@ void background_play(sfRenderWindow *window, game_t *game)
                                 game->play->obj->background->sprite, NULL);
 }
 
-basicobject_t init_button_game(game_t *game, char *path, float x, float y)
+basicobject_t init_location_tower(basicobject_t *location, float x, float y)
 {
     static int n = 0;
 
-    game->play->obj->button[n].texture =
-                                        sfTexture_createFromFile(path, NULL);
-    game->play->obj->button[n].sprite = sfSprite_create();
-    sfSprite_setTexture(game->play->obj->button[n].sprite,
-                                    game->play->obj->button[n].texture, 1);
-    game->play->obj->button[n].vector.x = x;
-    game->play->obj->button[n].vector.y = y;
-    sfSprite_setPosition(game->play->obj->button[n].sprite,
-                                        game->play->obj->button[n].vector);
+    location[n].texture = sfTexture_createFromFile("picture/check.png", NULL);
+    location[n].sprite = sfSprite_create();
+    sfSprite_setTexture(location[n].sprite, location[n].texture, 1);
+    location[n].vector.x = x;
+    location[n].vector.y = y;
+    sfSprite_setPosition(location[n].sprite, location[n].vector);
     n++;
-    return (game->play->obj->button[n - 1]);
+    return (location[n - 1]);
 }
 
-void create_button_game(game_t *game)
+void create_location_tower(game_t *game)
 {
-    game->play->obj->button[0] = init_button(game, "picture/play.png",
-                                                                461.0, 800.0);
-    //game->play->obj->button[1] = init_button(game, "picture/Inf.png", 1540.0, 800.0);
-    //game->play->obj->button[2] = init_button(game, "picture/Exi.png", 1700.0, 50.0);
-    //game->play->obj->button[3] = init_button(game, "picture/Opt.png", 240.0, 800.0);
+    game->play->location[0] = init_location_tower
+                                (game->play->location, 35.0, 355.0);
+    game->play->location[1] = init_location_tower
+                                (game->play->location, 345.0, 315.0);
+    game->play->location[2] = init_location_tower
+                                (game->play->location, 705.0, 455.0);
+    game->play->location[3] = init_location_tower
+                                (game->play->location, 1055.0, 540.0);
+    game->play->location[4] = init_location_tower
+                                (game->play->location, 1250.0, 250.0);
 }
 
-void display_button_game(sfRenderWindow *window, game_t *game)
+void display_location_tower(sfRenderWindow *window, game_t *game)
 {
-    sfRenderWindow_drawSprite(window, game->play->obj->button[0].sprite, NULL);
-    sfRenderWindow_drawSprite(window, game->play->obj->button[1].sprite, NULL);
-    sfRenderWindow_drawSprite(window, game->play->obj->button[2].sprite, NULL);
-    sfRenderWindow_drawSprite(window, game->play->obj->button[3].sprite, NULL);
+    if (game->play->tower_basic->activated == OK) {
+        sfRenderWindow_drawSprite(window,
+                                game->play->location[0].sprite, NULL);
+        sfRenderWindow_drawSprite(window,
+                                game->play->location[1].sprite, NULL);
+        sfRenderWindow_drawSprite(window,
+                                game->play->location[2].sprite, NULL);
+        sfRenderWindow_drawSprite(window,
+                                game->play->location[3].sprite, NULL);
+        sfRenderWindow_drawSprite(window,
+                                game->play->location[4].sprite, NULL);
+    }
 }
