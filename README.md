@@ -21,7 +21,7 @@ Your game must follow the following rules:
 - Buildings can be offensive (towers attacking) or defen-sive (basic walls),
 - When the castle is reached by an enemy, it takes dam-ages
 - If the castle reaches 0 hit points the player loose.Having a pleasant user interface is one of the details that makes a good quality game,
-this project is theoccasion for you to try your best on that topic.
+this project is the occasion for you to try your best on that topic.
 
 ## Example of my_defender
 
