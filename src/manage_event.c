@@ -22,11 +22,15 @@ void manage_event(sfRenderWindow *window, game_t *game)
 
 void manage_plan(sfRenderWindow *window, game_t *game)
 {
-    if (game->menu->location == MENU)
+    if (game->menu->location == MENU) {
         recovery_position_button(window, game, PLAY);
         recovery_position_button(window, game, INFO);
         recovery_position_button(window, game, EXIT);
         recovery_position_button(window, game, SETTINGS);
+    }
     if (game->menu->location == PLAY)
-        check_hitbox_tower(window, game);
+        check_hitbox_tower_basic(window, game);
+        check_hitbox_tower_profit(window, game);
+        check_hitbox_tower_slow(window, game);
+        check_hitbox_tower_wall(window, game);
 }

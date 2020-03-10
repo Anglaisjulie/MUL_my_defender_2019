@@ -5,7 +5,7 @@
 ** menu.c
 */
 
-#include "fonctions.h"
+#include "../fonctions.h"
 
 void background_menu(sfRenderWindow *window, game_t *game)
 {

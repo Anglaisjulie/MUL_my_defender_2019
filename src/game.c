@@ -12,7 +12,7 @@ void init_game(sfRenderWindow *window, game_t *game)
     game_malloc_menu(game);
     game_malloc_play(game);
     game_malloc_tower(game);
-    malloc_tower_body(game);
+    game_malloc_tower_body(game);
     background_menu(window, game);
     create_button_menu(game);
     create_location_tower(game);
@@ -32,25 +32,9 @@ int game_loop(sfRenderWindow *window, game_t *game)
     return (0);
 }
 
-void option_menu_map(sfRenderWindow *window, game_t *game)
+void destroy_game(game_t *game, sfRenderWindow *window)
 {
-    if (game->menu->location == MENU) {
-        background_menu(window, game);
-        button_same_mouse(window, game, PLAY);
-        button_same_mouse(window, game, INFO);
-        button_same_mouse(window, game, EXIT);
-        button_same_mouse(window, game, SETTINGS);
-        display_button_menu(window, game);
-    }
-    if (game->menu->location == PLAY) {
-        background_play(window, game);
-        display_location_tower(window, game);
-        display_tower(window, game);
-    }
-    if (game->menu->location == INFO) {
-
-    }
-    if (game->menu->location == SETTINGS) {
-
-    }
+    destroy_tower(game->play);
+    destroy_basic_element_of_play(game->play);
+    sfRenderWindow_destroy(window);
 }

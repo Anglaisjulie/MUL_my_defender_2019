@@ -15,11 +15,7 @@ int main(void)
 
     window = sfRenderWindow_create(mode, "My Defender", sfDefaultStyle, NULL);
     init_game(window, &game);
-    music_menu(&game);
     game_loop(window, &game);
-    free_texture(&game);
-    free_sprite(&game);
-    destroy_music(&game);
-    sfRenderWindow_destroy(window);
+    destroy_game(&game, window);
     return (0);
 }

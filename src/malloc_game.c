@@ -54,32 +54,36 @@ int game_malloc_play(game_t *game)
 
 int game_malloc_tower(game_t *game)
 {
-    game->play->tower_basic = malloc(sizeof(tower_t));
+    game->play->tower_basic = malloc(sizeof(tower_t) * 6);
     if (game->play->tower_basic == NULL)
         return (ERROR);
-    game->play->tower_slow = malloc(sizeof(tower_t));
+    game->play->tower_slow = malloc(sizeof(tower_t) * 6);
     if (game->play->tower_slow == NULL)
         return (ERROR);
-    game->play->tower_wall = malloc(sizeof(tower_t));
+    game->play->tower_wall = malloc(sizeof(tower_t) * 6);
     if (game->play->tower_wall == NULL)
         return (ERROR);
-    game->play->tower_profit = malloc(sizeof(tower_t));
+    game->play->tower_profit = malloc(sizeof(tower_t) * 6);
     if (game->play->tower_profit == NULL)
         return (ERROR);
+    return (0);
 }
 
-int malloc_tower_body(game_t *game)
+int game_malloc_tower_body(game_t *game)
 {
-    game->play->tower_basic->body = malloc(sizeof(basicobject_t) * 6);
-    if (game->play->tower_basic->body == NULL)
-        return (ERROR);
-    game->play->tower_slow->body = malloc(sizeof(basicobject_t) * 6);
-    if (game->play->tower_slow->body == NULL)
-        return (ERROR);
-    game->play->tower_wall->body = malloc(sizeof(basicobject_t) * 6);
-    if (game->play->tower_wall->body == NULL)
-        return (ERROR);
-    game->play->tower_profit->body = malloc(sizeof(basicobject_t) * 6);
-    if (game->play->tower_profit->body == NULL)
-        return (ERROR);
+    for (int i = 0; i != 6; i++) {
+        game->play->tower_basic[i].body = malloc(sizeof(basicobject_t));
+        if (game->play->tower_basic[i].body == NULL)
+            return (ERROR);
+        game->play->tower_slow[i].body = malloc(sizeof(basicobject_t));
+        if (game->play->tower_slow[i].body == NULL)
+            return (ERROR);
+        game->play->tower_wall[i].body = malloc(sizeof(basicobject_t));
+        if (game->play->tower_wall[i].body == NULL)
+            return (ERROR);
+        game->play->tower_profit[i].body = malloc(sizeof(basicobject_t));
+        if (game->play->tower_profit[i].body == NULL)
+            return (ERROR);
+    }
+    return (0);
 }

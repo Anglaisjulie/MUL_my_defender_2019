@@ -11,18 +11,25 @@ CC	=	gcc
 
 SRC_DIR =		src/
 
-FILE_LIST =		main.c \
-				manage_event.c \
-				malloc_game.c \
-				game.c \
-				menu.c \
-				destroy.c \
-				menu_event.c \
-				music_game.c \
-				map_game.c \
-				ennemi.c \
-				tower.c \
-				event_in_game.c \
+FILE_LIST =		main.c 														\
+				malloc_game.c 												\
+				game.c 														\
+				manage_event.c 												\
+				map_game.c 													\
+				Menu/menu.c 												\
+				Menu/menu_event.c 											\
+				Menu/music_menu.c 											\
+				Menu/option_of_menu.c 										\
+				Tower/tower_wall.c											\
+				Tower/tower_basic.c											\
+				Tower/tower_slow.c											\
+				Tower/tower_profit.c										\
+				Tower/location_tower.c										\
+				Tower/create_tower.c										\
+				Tower/draw_tower.c											\
+				Tower/hitbox_tower.c											\
+				Ennemi/ennemi.c 											\
+				destroy.c 													\
 
 
 SRC		= 		$(addprefix $(SRC_DIR), $(FILE_LIST))
@@ -32,7 +39,7 @@ OBJ		=		$(SRC:.c=.o)
 NAME 	= 		my_defender
 
 CFLAGS  =		-W -Wextra -Wall -I./include/
-CFLAGS	+=		-fdiagnostics-color
+CFLAGS	+=		-fdiagnostics-color -g3
 CFLAGS	+=		-lcsfml-window -lcsfml-graphics -lcsfml-audio -lcsfml-system
 
 all: 	$(NAME)
@@ -42,6 +49,9 @@ $(NAME):	$(OBJ)
 
 clean:
 	$(RM) src/*.o
+	$(RM) src/Menu/*.o
+	$(RM) src/Tower/*.o
+	$(RM) src/Ennemi/*.o
 
 fclean: clean
 	$(RM) $(NAME)

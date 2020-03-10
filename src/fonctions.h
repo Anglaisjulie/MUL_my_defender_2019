@@ -85,22 +85,32 @@ void init_game(sfRenderWindow *, game_t *);
 int game_malloc_play(game_t *);
 int game_malloc_menu(game_t *);
 int game_malloc_tower(game_t *);
-int malloc_tower_body(game_t *);
+int game_malloc_tower_body(game_t *);
 int game_loop(sfRenderWindow *, game_t *);
 
 //TOWER :
 basicobject_t init_location_tower(basicobject_t *, float, float);
 void create_location_tower(game_t *);
 void display_location_tower(sfRenderWindow *, game_t *);
-basicobject_t init_tower(basicobject_t *, float, float, char *path);
-void create_tower(game_t *);
+basicobject_t *init_tower_basic(basicobject_t *, float, float, char *path);
+void create_tower_basic(game_t *);
+basicobject_t *init_tower_slow(basicobject_t *, float, float, char *path);
+void create_tower_slow(game_t *);
+basicobject_t *init_tower_profit(basicobject_t *, float, float, char *path);
+void create_tower_profit(game_t *);
+basicobject_t *init_tower_wall(basicobject_t *, float, float, char *path);
+void create_tower_wall(game_t *);
 void display_tower(sfRenderWindow *, game_t *);
-
+void create_tower(game_t *);
+void destroy_tower(play_t *);
 
 //EVENT :
 void manage_event(sfRenderWindow *, game_t *);
 void button_same_mouse(sfRenderWindow *, game_t *, int);
-void check_hitbox_tower(sfRenderWindow *, game_t *);
+void check_hitbox_tower_basic(sfRenderWindow *, game_t *);
+void check_hitbox_tower_profit(sfRenderWindow *, game_t *);
+void check_hitbox_tower_slow(sfRenderWindow *, game_t *);
+void check_hitbox_tower_wall(sfRenderWindow *, game_t *);
 void manage_plan(sfRenderWindow *, game_t *);
 
 //MENU :
@@ -112,9 +122,11 @@ void choice_menu(sfRenderWindow *, game_t *, int);
 void recovery_position_button(sfRenderWindow *, game_t *, int);
 void option_menu_map(sfRenderWindow *, game_t *);
 void initialize_rect(basicobject_t *);
+void destroy_menu(menu_t *);
+void action_menu(sfRenderWindow *, game_t *, int);
 
 //MUSIC :
-void music_menu(game_t *);
+void music_menu(menu_t *);
 
 //MAP :
 void background_play(sfRenderWindow *, game_t *);
@@ -125,9 +137,9 @@ void background_play(sfRenderWindow *, game_t *);
 //ENNEMIE
 basicobject_t *init_ennemi(ennemi_t *, int);
 
-//FREE
-void free_texture(game_t *);
-void free_sprite(game_t *);
-void destroy_music(game_t *);
+//DESTROY, FREE
+void destroy_basic_element_of_play(play_t *);
+void destroy_music(menu_t *);
+void destroy_game(game_t *, sfRenderWindow *);
 
 #endif

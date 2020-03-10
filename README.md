@@ -11,7 +11,7 @@
 
 
 This project is a Tower Defense game.
-A Good example of this kind of games is Revenge of the titans.  
+A Good example of this kind of games is Revenge of the titans.
 Your main challenge for this game will be to create nice andsmooth user interface and menus.
 
 Your game must follow the following rules:

@@ -5,7 +5,7 @@
 ** ennemie.c
 */
 
-#include "fonctions.h"
+#include "../fonctions.h"
 
 basicobject_t *init_ennemi(ennemi_t *ennemi, int n)
 {

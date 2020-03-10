@@ -5,7 +5,7 @@
 ** menu_event.c
 */
 
-#include "fonctions.h"
+#include "../fonctions.h"
 
 void recovery_position_button(sfRenderWindow *window, game_t *game, int n)
 {
@@ -28,15 +28,19 @@ void choice_menu(sfRenderWindow *window, game_t *game, int n)
     switch(n) {
         case 0:
             game->menu->location = PLAY;
+            destroy_menu(game->menu);
             break;
         case 1:
             game->menu->location = INFO;
+            destroy_menu(game->menu);
             break;
         case 2:
             sfRenderWindow_close(window);
+            destroy_menu(game->menu);
             break;
         case 3:
             game->menu->location = SETTINGS;
+            destroy_menu(game->menu);
             break;
     }
 }
