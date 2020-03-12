@@ -64,6 +64,8 @@ typedef struct ennemi_s {
 typedef struct tower_s {
     basicobject_t *body;
     int activated;
+    int damage;
+    int price;
 } tower_t;
 
 typedef struct location_s {
@@ -79,6 +81,7 @@ typedef struct play_s {
     tower_t *tower_slow;
     tower_t *tower_wall;
     tower_t *tower_profit;
+    int coin;
 } play_t;
 
 typedef struct game_s {

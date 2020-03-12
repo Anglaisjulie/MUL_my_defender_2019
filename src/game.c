@@ -20,6 +20,7 @@ void init_game(sfRenderWindow *window, game_t *game)
     create_tower(game);
     sfRenderWindow_setFramerateLimit(window, 30);
     game->menu->location = MENU;
+    game->play->coin = 100;
 }
 
 int game_loop(sfRenderWindow *window, game_t *game)
