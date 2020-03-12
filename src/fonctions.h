@@ -19,6 +19,7 @@ static const int ERROR = 84;
 
 static const int KO = 0;
 static const int OK = 1;
+static const int DRAW = 2;
 
 static const int MAX_SCREEN_X = 1920;
 static const int MAX_SCREEN_Y = 1080;
@@ -65,10 +66,15 @@ typedef struct tower_s {
     int activated;
 } tower_t;
 
+typedef struct location_s {
+    basicobject_t *tower;
+    int full;
+} location_t;
+
 typedef struct play_s {
     object_t *obj;
     ennemi_t *ennemi;
-    basicobject_t *location;
+    location_t *location;
     tower_t *tower_basic;
     tower_t *tower_slow;
     tower_t *tower_wall;
@@ -87,9 +93,10 @@ int game_malloc_menu(game_t *);
 int game_malloc_tower(game_t *);
 int game_malloc_tower_body(game_t *);
 int game_loop(sfRenderWindow *, game_t *);
+int game_malloc_tower_location(game_t *);
 
 //TOWER :
-basicobject_t init_location_tower(basicobject_t *, float, float);
+location_t init_location_tower(location_t *, float, float);
 void create_location_tower(game_t *);
 void display_location_tower(sfRenderWindow *, game_t *);
 basicobject_t *init_tower_basic(basicobject_t *, float, float, char *path);
@@ -102,7 +109,9 @@ basicobject_t *init_tower_wall(basicobject_t *, float, float, char *path);
 void create_tower_wall(game_t *);
 void display_tower(sfRenderWindow *, game_t *);
 void create_tower(game_t *);
+void check_draw_tower(sfRenderWindow *, game_t *);
 void destroy_tower(play_t *);
+void check_ko_location(sfRenderWindow *, game_t *);
 
 //EVENT :
 void manage_event(sfRenderWindow *, game_t *);
@@ -111,7 +120,14 @@ void check_hitbox_tower_basic(sfRenderWindow *, game_t *);
 void check_hitbox_tower_profit(sfRenderWindow *, game_t *);
 void check_hitbox_tower_slow(sfRenderWindow *, game_t *);
 void check_hitbox_tower_wall(sfRenderWindow *, game_t *);
+void check_hitbox_tower(sfRenderWindow *, game_t *);
 void manage_plan(sfRenderWindow *, game_t *);
+void put_location(sfRenderWindow *, game_t *, int);
+void put_location_basic(sfRenderWindow *, game_t *, int);
+void put_location_profit(sfRenderWindow *, game_t *, int);
+void put_location_slow(sfRenderWindow *, game_t *, int);
+void put_location_wall(sfRenderWindow *, game_t *, int);
+void event_play(sfRenderWindow *, game_t *);
 
 //MENU :
 void background_menu(sfRenderWindow *, game_t *);

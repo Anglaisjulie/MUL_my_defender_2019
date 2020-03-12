@@ -7,8 +7,6 @@
 
 #include "fonctions.h"
 
-#include "fonctions.h"
-
 int game_malloc_menu(game_t *game)
 {
     game->menu = malloc(sizeof(menu_t));
@@ -46,7 +44,7 @@ int game_malloc_play(game_t *game)
     game->play->ennemi = malloc(sizeof(ennemi_t) * 20);
     if (game->play->ennemi == NULL)
         return (ERROR);
-    game->play->location = malloc(sizeof(basicobject_t) * 5);
+    game->play->location = malloc(sizeof(location_t) * 5);
     if (game->play->location == NULL)
         return (ERROR);
     return (0);
@@ -84,6 +82,17 @@ int game_malloc_tower_body(game_t *game)
         game->play->tower_profit[i].body = malloc(sizeof(basicobject_t));
         if (game->play->tower_profit[i].body == NULL)
             return (ERROR);
+    }
+    return (0);
+}
+
+int game_malloc_tower_location(game_t *game)
+{
+    for (int i = 0; i != 5; i++) {
+        game->play->location[i].tower = malloc(sizeof(basicobject_t));
+        if (game->play->location->tower == NULL)
+            return (ERROR);
+        game->play->location[i].full = OK;
     }
     return (0);
 }

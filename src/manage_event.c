@@ -29,8 +29,12 @@ void manage_plan(sfRenderWindow *window, game_t *game)
         recovery_position_button(window, game, SETTINGS);
     }
     if (game->menu->location == PLAY)
-        check_hitbox_tower_basic(window, game);
-        check_hitbox_tower_profit(window, game);
-        check_hitbox_tower_slow(window, game);
-        check_hitbox_tower_wall(window, game);
+        event_play(window, game);
+}
+
+void event_play(sfRenderWindow *window, game_t *game)
+{
+    check_hitbox_tower(window, game);
+    for (int i = 0; i != 5; i++)
+        put_location(window, game, i);
 }

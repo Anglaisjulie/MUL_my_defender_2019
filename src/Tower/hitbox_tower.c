@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_defender_2019
 ** File description:
-** event_in_game.c
+** hitbox_tower.c
 */
 
 #include "../fonctions.h"
@@ -81,4 +81,12 @@ void check_hitbox_tower_wall(sfRenderWindow *window, game_t *game)
     else if (pos_mouse.x >= pos_tower.x && pos_mouse.x <= rec_tower.x
         && pos_mouse.y >= pos_tower.y && pos_mouse.y <= rec_tower.y)
         game->play->tower_wall[0].activated = OK;
+}
+
+void check_hitbox_tower(sfRenderWindow *window, game_t *game)
+{
+    check_hitbox_tower_basic(window, game);
+    check_hitbox_tower_profit(window, game);
+    check_hitbox_tower_slow(window, game);
+    check_hitbox_tower_wall(window, game);
 }

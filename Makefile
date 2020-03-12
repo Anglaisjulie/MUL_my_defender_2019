@@ -27,7 +27,8 @@ FILE_LIST =		main.c 														\
 				Tower/location_tower.c										\
 				Tower/create_tower.c										\
 				Tower/draw_tower.c											\
-				Tower/hitbox_tower.c											\
+				Tower/hitbox_tower.c										\
+				Tower/event_tower.c											\
 				Ennemi/ennemi.c 											\
 				destroy.c 													\
 

@@ -31,7 +31,7 @@ void destroy_tower(play_t *play)
 void destroy_basic_element_of_play(play_t *play)
 {
     sfTexture_destroy(play->obj->background->texture);
-    sfTexture_destroy(play->location->texture);
+    sfTexture_destroy(play->location->tower->texture);
     sfSprite_destroy(play->obj->background->sprite);
-    sfSprite_destroy(play->location->sprite);
+    sfSprite_destroy(play->location->tower->sprite);
 }

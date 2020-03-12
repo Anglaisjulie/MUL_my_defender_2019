@@ -13,6 +13,7 @@ void init_game(sfRenderWindow *window, game_t *game)
     game_malloc_play(game);
     game_malloc_tower(game);
     game_malloc_tower_body(game);
+    game_malloc_tower_location(game);
     background_menu(window, game);
     create_button_menu(game);
     create_location_tower(game);

@@ -25,13 +25,15 @@ void create_tower_profit(game_t *game)
     (game->play->tower_profit[0].body, 1650.0, 450.0,
                                                     "picture/tower-canon.png");
     game->play->tower_profit[1].body = init_tower_profit
-    (game->play->tower_profit[1].body, -17.0, 230.0, "picture/tower-canon.png");
+    (game->play->tower_profit[1].body, 68.0, 320.0, "picture/tower-canon.png");
     game->play->tower_profit[2].body = init_tower_profit
-    (game->play->tower_profit[2].body, 287.0, 185.0, "picture/tower-canon.png");
+    (game->play->tower_profit[2].body, 380.0, 285.0, "picture/tower-canon.png");
     game->play->tower_profit[3].body = init_tower_profit
-    (game->play->tower_profit[3].body, 650.0, 325.0, "picture/tower-canon.png");
+    (game->play->tower_profit[3].body, 740.0, 425.0, "picture/tower-canon.png");
     game->play->tower_profit[4].body = init_tower_profit
-    (game->play->tower_profit[4].body, 650.0, 325.0, "picture/tower-canon.png");
+    (game->play->tower_profit[4].body, 1090.0, 510.0,
+                                                    "picture/tower-canon.png");
     game->play->tower_profit[5].body = init_tower_profit
-    (game->play->tower_profit[5].body, 650.0, 325.0, "picture/tower-canon.png");
+    (game->play->tower_profit[5].body, 1285.0, 220.0,
+                                                    "picture/tower-canon.png");
 }

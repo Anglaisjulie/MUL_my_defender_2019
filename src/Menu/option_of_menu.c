@@ -19,6 +19,7 @@ void option_menu_map(sfRenderWindow *window, game_t *game)
         background_play(window, game);
         display_location_tower(window, game);
         display_tower(window, game);
+        check_draw_tower(window, game);
     }
     if (game->menu->location == INFO) {
     }

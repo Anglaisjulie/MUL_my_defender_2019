@@ -7,16 +7,18 @@
 
 #include "../fonctions.h"
 
-basicobject_t init_location_tower(basicobject_t *location, float x, float y)
+location_t init_location_tower(location_t *location, float x, float y)
 {
     static int n = 0;
 
-    location[n].texture = sfTexture_createFromFile("picture/check.png", NULL);
-    location[n].sprite = sfSprite_create();
-    sfSprite_setTexture(location[n].sprite, location[n].texture, 1);
-    location[n].vector.x = x;
-    location[n].vector.y = y;
-    sfSprite_setPosition(location[n].sprite, location[n].vector);
+    location[n].tower->texture = sfTexture_createFromFile
+                                                    ("picture/check.png", NULL);
+    location[n].tower->sprite = sfSprite_create();
+    sfSprite_setTexture(location[n].tower->sprite,
+                                                location[n].tower->texture, 1);
+    location[n].tower->vector.x = x;
+    location[n].tower->vector.y = y;
+    sfSprite_setPosition(location[n].tower->sprite, location[n].tower->vector);
     n++;
     return (location[n - 1]);
 }
@@ -40,16 +42,16 @@ void display_location_tower(sfRenderWindow *window, game_t *game)
     if ((game->play->tower_basic->activated == OK)
         || (game->play->tower_profit->activated == OK)
         || (game->play->tower_slow->activated == OK)
-        || (game->play->tower_wall->activated == OK)) {
-        sfRenderWindow_drawSprite(window,
-                                game->play->location[0].sprite, NULL);
-        sfRenderWindow_drawSprite(window,
-                                game->play->location[1].sprite, NULL);
-        sfRenderWindow_drawSprite(window,
-                                game->play->location[2].sprite, NULL);
-        sfRenderWindow_drawSprite(window,
-                                game->play->location[3].sprite, NULL);
-        sfRenderWindow_drawSprite(window,
-                                game->play->location[4].sprite, NULL);
+        || (game->play->tower_wall->activated == OK))
+        check_ko_location(window, game);
+}
+
+void check_ko_location(sfRenderWindow *window, game_t *game)
+{
+    for (int i = 0; i != 5; i++) {
+        if (game->play->location[i].full == OK) {
+            sfRenderWindow_drawSprite(window,
+                                game->play->location[i].tower->sprite, NULL);
+        }
     }
 }

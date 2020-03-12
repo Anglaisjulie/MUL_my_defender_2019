@@ -24,13 +24,13 @@ void create_tower_basic(game_t *game)
     game->play->tower_basic[0].body = init_tower_basic
     (game->play->tower_basic[0].body, 1650.0, 50.0, "picture/tower-tesla.png");
     game->play->tower_basic[1].body = init_tower_basic
-    (game->play->tower_basic[1].body, -17.0, 230.0, "picture/tower-tesla.png");
+    (game->play->tower_basic[1].body, 68.0, 285.0, "picture/tower-tesla.png");
     game->play->tower_basic[2].body = init_tower_basic
-    (game->play->tower_basic[2].body, 287.0, 185.0, "picture/tower-tesla.png");
+    (game->play->tower_basic[2].body, 380.0, 250.0, "picture/tower-tesla.png");
     game->play->tower_basic[3].body = init_tower_basic
-    (game->play->tower_basic[3].body, 650.0, 325.0, "picture/tower-tesla.png");
+    (game->play->tower_basic[3].body, 740.0, 390.0, "picture/tower-tesla.png");
     game->play->tower_basic[4].body = init_tower_basic
-    (game->play->tower_basic[4].body, 650.0, 325.0, "picture/tower-tesla.png");
+    (game->play->tower_basic[4].body, 1090.0, 475.0, "picture/tower-tesla.png");
     game->play->tower_basic[5].body = init_tower_basic
-    (game->play->tower_basic[5].body, 650.0, 325.0, "picture/tower-tesla.png");
+    (game->play->tower_basic[5].body, 1285.0, 185.0, "picture/tower-tesla.png");
 }

@@ -24,13 +24,13 @@ void create_tower_wall(game_t *game)
     game->play->tower_wall[0].body = init_tower_wall
     (game->play->tower_wall[0].body, 1650.0, 650.0, "picture/tower-magic.png");
     game->play->tower_wall[1].body = init_tower_wall
-    (game->play->tower_wall[1].body, -17.0, 230.0, "picture/tower-magic.png");
+    (game->play->tower_wall[1].body, 68.0, 310.0, "picture/tower-magic.png");
     game->play->tower_wall[2].body = init_tower_wall
-    (game->play->tower_wall[2].body, 287.0, 185.0, "picture/tower-magic.png");
+    (game->play->tower_wall[2].body, 380.0, 275.0, "picture/tower-magic.png");
     game->play->tower_wall[3].body = init_tower_wall
-    (game->play->tower_wall[3].body, 650.0, 325.0, "picture/tower-magic.png");
+    (game->play->tower_wall[3].body, 740.0, 415.0, "picture/tower-magic.png");
     game->play->tower_wall[4].body = init_tower_wall
-    (game->play->tower_wall[4].body, 650.0, 325.0, "picture/tower-magic.png");
+    (game->play->tower_wall[4].body, 1090.0, 500.0, "picture/tower-magic.png");
     game->play->tower_wall[5].body = init_tower_wall
-    (game->play->tower_wall[5].body, 650.0, 325.0, "picture/tower-magic.png");
+    (game->play->tower_wall[5].body, 1285.0, 210.0, "picture/tower-magic.png");
 }

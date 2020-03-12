@@ -24,13 +24,13 @@ void create_tower_slow(game_t *game)
     game->play->tower_slow[0].body = init_tower_slow
     (game->play->tower_slow[0].body, 1650.0, 250.0, "picture/tower-ice.png");
     game->play->tower_slow[1].body = init_tower_slow
-    (game->play->tower_slow[1].body, -17.0, 230.0, "picture/tower-ice.png");
+    (game->play->tower_slow[1].body, 68.0, 330.0, "picture/tower-ice.png");
     game->play->tower_slow[2].body = init_tower_slow
-    (game->play->tower_slow[2].body, 287.0, 185.0, "picture/tower-ice.png");
+    (game->play->tower_slow[2].body, 380.0, 295.0, "picture/tower-ice.png");
     game->play->tower_slow[3].body = init_tower_slow
-    (game->play->tower_slow[3].body, 650.0, 325.0, "picture/tower-ice.png");
+    (game->play->tower_slow[3].body, 740.0, 435.0, "picture/tower-ice.png");
     game->play->tower_slow[4].body = init_tower_slow
-    (game->play->tower_slow[4].body, 650.0, 325.0, "picture/tower-ice.png");
+    (game->play->tower_slow[4].body, 1090.0, 520.0, "picture/tower-ice.png");
     game->play->tower_slow[5].body = init_tower_slow
-    (game->play->tower_slow[5].body, 650.0, 325.0, "picture/tower-ice.png");
+    (game->play->tower_slow[5].body, 1285.0, 230.0, "picture/tower-ice.png");
 }
