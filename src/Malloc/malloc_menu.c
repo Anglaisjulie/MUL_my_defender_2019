@@ -5,7 +5,7 @@
 ** malloc_menu.c
 */
 
-#include "fonctions.h"
+#include "../fonctions.h"
 
 int game_malloc_menu(game_t *game)
 {

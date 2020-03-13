@@ -5,7 +5,7 @@
 ** malloc_play.c
 */
 
-#include "fonctions.h"
+#include "../fonctions.h"
 
 int game_malloc_play(game_t *game)
 {
