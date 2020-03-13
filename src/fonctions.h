@@ -73,6 +73,12 @@ typedef struct location_s {
     int full;
 } location_t;
 
+typedef struct castle_s {
+    basicobject_t *body;
+    basicobject_t *heart;
+    int life;
+} castle_t;
+
 typedef struct play_s {
     object_t *obj;
     ennemi_t *ennemi;
@@ -81,6 +87,7 @@ typedef struct play_s {
     tower_t *tower_slow;
     tower_t *tower_wall;
     tower_t *tower_profit;
+    castle_t *castle;
     int coin;
 } play_t;
 
@@ -116,6 +123,9 @@ void check_draw_tower(sfRenderWindow *, game_t *);
 void destroy_tower(play_t *);
 void check_ko_location(sfRenderWindow *, game_t *);
 
+//CASTLE
+void create_castle(castle_t *);
+
 //EVENT :
 void manage_event(sfRenderWindow *, game_t *);
 void button_same_mouse(sfRenderWindow *, game_t *, int);
@@ -149,6 +159,7 @@ void music_menu(menu_t *);
 
 //MAP :
 void background_play(sfRenderWindow *, game_t *);
+void create_background_play(game_t *);
 
 //ERROR MANAGEMENT
 

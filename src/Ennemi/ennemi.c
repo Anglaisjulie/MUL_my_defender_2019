@@ -22,3 +22,4 @@ basicobject_t *init_ennemi(ennemi_t *ennemi, int n)
     sfSprite_setTextureRect(ennemi[n].body->sprite, ennemi[n].body->rect);
     return (ennemi[n].body);
 }
+

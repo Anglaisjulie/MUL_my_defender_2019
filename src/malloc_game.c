@@ -94,5 +94,14 @@ int game_malloc_tower_location(game_t *game)
             return (ERROR);
         game->play->location[i].full = OK;
     }
+    game->play->castle = malloc(sizeof(castle_t));
+    if (game->play->castle == NULL)
+            return (ERROR);
+    game->play->castle->body = malloc(sizeof(basicobject_t));
+    if (game->play->castle->body == NULL)
+            return (ERROR);
+    game->play->castle->life = malloc(sizeof(basicobject_t));
+    if (game->play->castle->life == NULL)
+            return (ERROR);
     return (0);
 }

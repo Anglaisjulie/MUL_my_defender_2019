@@ -16,11 +16,12 @@ void init_game(sfRenderWindow *window, game_t *game)
     game_malloc_tower_location(game);
     background_menu(window, game);
     create_button_menu(game);
+    create_background_play(game);
     create_location_tower(game);
     create_tower(game);
     sfRenderWindow_setFramerateLimit(window, 30);
     game->menu->location = MENU;
-    game->play->coin = 100;
+    game->play->coin = 300;
 }
 
 int game_loop(sfRenderWindow *window, game_t *game)

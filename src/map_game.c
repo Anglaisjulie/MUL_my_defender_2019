@@ -7,7 +7,7 @@
 
 #include "fonctions.h"
 
-void background_play(sfRenderWindow *window, game_t *game)
+void create_background_play(game_t *game)
 {
     game->play->obj->background->texture = sfTexture_createFromFile
                                             ("picture/map2.png", NULL);
@@ -18,6 +18,13 @@ void background_play(sfRenderWindow *window, game_t *game)
     game->play->obj->background->vector.y = 0;
     sfSprite_setPosition(game->play->obj->background->sprite,
                                         game->play->obj->background->vector);
-    sfRenderWindow_drawSprite(window,
-                                game->play->obj->background->sprite, NULL);
+    create_castle(game->play->castle);
+}
+
+void background_play(sfRenderWindow *window, game_t *game)
+{
+    sfRenderWindow_drawSprite
+                            (window, game->play->obj->background->sprite, NULL);
+    sfRenderWindow_drawSprite
+                            (window, game->play->castle->body->sprite, NULL);
 }

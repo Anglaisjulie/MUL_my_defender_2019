@@ -9,6 +9,7 @@
 
 void create_tower(game_t *game)
 {
+    game->play->castle->life = 6;
     create_tower_basic(game);
     create_tower_profit(game);
     create_tower_wall(game);
