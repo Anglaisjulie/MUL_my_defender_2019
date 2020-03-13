@@ -12,8 +12,6 @@ CC	=	gcc
 SRC_DIR =		src/
 
 FILE_LIST =		main.c 														\
-				malloc_game.c 												\
-				malloc_text.c												\
 				game.c 														\
 				manage_event.c 												\
 				map_game.c 													\

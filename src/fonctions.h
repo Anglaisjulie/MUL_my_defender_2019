@@ -119,6 +119,7 @@ int game_malloc_tower_body(game_t *);
 int game_loop(sfRenderWindow *, game_t *);
 int game_malloc_tower_location(game_t *);
 int game_malloc_text(game_t *);
+int game_malloc(game_t *);
 void create_game(sfRenderWindow *, game_t *);
 
 
