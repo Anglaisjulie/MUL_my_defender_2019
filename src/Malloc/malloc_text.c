@@ -7,7 +7,7 @@
 
 #include "fonctions.h"
 
-int malloc_text(game_t *game)
+int game_malloc_text(game_t *game)
 {
     game->score = malloc(sizeof(score_t));
     if (game->score == NULL)

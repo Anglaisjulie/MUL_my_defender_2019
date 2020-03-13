@@ -118,7 +118,9 @@ int game_malloc_tower(game_t *);
 int game_malloc_tower_body(game_t *);
 int game_loop(sfRenderWindow *, game_t *);
 int game_malloc_tower_location(game_t *);
-int malloc_text(game_t *game);
+int game_malloc_text(game_t *);
+void create_game(sfRenderWindow *, game_t *);
+
 
 //TOWER :
 location_t init_location_tower(location_t *, float, float);
@@ -190,5 +192,6 @@ void destroy_game(game_t *, sfRenderWindow *);
 //SCORE
 void draw_score(game_t *game);
 void upgrade_score(game_t *game);
+void create_clock(game_t *game);
 
 #endif

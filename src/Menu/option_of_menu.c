@@ -20,6 +20,9 @@ void option_menu_map(sfRenderWindow *window, game_t *game)
         display_location_tower(window, game);
         display_tower(window, game);
         check_draw_tower(window, game);
+        sfRenderWindow_drawText(window, game->score->score, NULL);
+        sfRenderWindow_drawText(window, game->score->nb_score, NULL);
+        upgrade_score(game);
     }
     if (game->menu->location == INFO) {
     }

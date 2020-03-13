@@ -17,6 +17,11 @@ FILE_LIST =		main.c 														\
 				game.c 														\
 				manage_event.c 												\
 				map_game.c 													\
+				create_game.c												\
+				Malloc/malloc_game.c										\
+				Malloc/malloc_menu.c										\
+				Malloc/malloc_play.c										\
+				Malloc/malloc_text.c										\
 				Menu/menu.c 												\
 				Menu/menu_event.c 											\
 				Menu/music_menu.c 											\
@@ -30,11 +35,10 @@ FILE_LIST =		main.c 														\
 				Tower/draw_tower.c											\
 				Tower/hitbox_tower.c										\
 				Tower/event_tower.c											\
-				Ennemi/ennemi.c 											\
-				destroy.c 													\
 				Castle/create_castle.c										\
+				Ennemi/ennemi.c 											\
 				Score/score.c												\
-
+				destroy.c 													\
 
 SRC		= 		$(addprefix $(SRC_DIR), $(FILE_LIST))
 
@@ -57,6 +61,8 @@ clean:
 	$(RM) src/Tower/*.o
 	$(RM) src/Ennemi/*.o
 	$(RM) src/Castle/*.o
+	$(RM) src/Score/*.o
+	$(RM) src/Malloc/*.o
 
 fclean: clean
 	$(RM) $(NAME)
