@@ -13,6 +13,7 @@ SRC_DIR =		src/
 
 FILE_LIST =		main.c 														\
 				malloc_game.c 												\
+				malloc_text.c												\
 				game.c 														\
 				manage_event.c 												\
 				map_game.c 													\
@@ -32,6 +33,7 @@ FILE_LIST =		main.c 														\
 				Ennemi/ennemi.c 											\
 				destroy.c 													\
 				Castle/create_castle.c										\
+				Score/score.c												\
 
 
 SRC		= 		$(addprefix $(SRC_DIR), $(FILE_LIST))
