@@ -31,6 +31,7 @@ FILE_LIST =		main.c 														\
 				Tower/event_tower.c											\
 				Ennemi/ennemi.c 											\
 				destroy.c 													\
+				Castle/create_castle.c										\
 
 
 SRC		= 		$(addprefix $(SRC_DIR), $(FILE_LIST))
@@ -53,6 +54,7 @@ clean:
 	$(RM) src/Menu/*.o
 	$(RM) src/Tower/*.o
 	$(RM) src/Ennemi/*.o
+	$(RM) src/Castle/*.o
 
 fclean: clean
 	$(RM) $(NAME)
