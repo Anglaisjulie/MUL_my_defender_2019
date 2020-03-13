@@ -34,6 +34,18 @@ static const int ON_BUTTON = 398;
 static const int OUTSIDE_BUTTON = 0;
 
 
+typedef struct times_s {
+    int score;
+    sfTime time;
+    sfClock *clock;
+} times_t;
+
+typedef struct score_s {
+    sfText *score;
+    sfText *nb_score;
+    sfFont *score_f;
+} score_t;
+
 typedef struct basicobject_s {
     sfTexture *texture;
     sfSprite *sprite;
@@ -87,6 +99,8 @@ typedef struct play_s {
 typedef struct game_s {
     menu_t *menu;
     play_t *play;
+    score_t *score;
+    times_t *time;
 } game_t;
 
 //GAME INIT :
@@ -97,6 +111,7 @@ int game_malloc_tower(game_t *);
 int game_malloc_tower_body(game_t *);
 int game_loop(sfRenderWindow *, game_t *);
 int game_malloc_tower_location(game_t *);
+int malloc_text(game_t *game);
 
 //TOWER :
 location_t init_location_tower(location_t *, float, float);
@@ -160,5 +175,9 @@ basicobject_t *init_ennemi(ennemi_t *, int);
 void destroy_basic_element_of_play(play_t *);
 void destroy_music(menu_t *);
 void destroy_game(game_t *, sfRenderWindow *);
+
+//SCORE
+void draw_score(game_t *game);
+void upgrade_score(game_t *game);
 
 #endif
