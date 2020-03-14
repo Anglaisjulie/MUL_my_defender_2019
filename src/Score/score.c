@@ -25,7 +25,7 @@ char *my_itoa(int nb)
     return (str);
 }
 
-void draw_score(game_t *game)
+void create_score(game_t *game)
 {
     sfVector2f vector = {1600, 900};
     sfVector2f vector_nb = {1700, 900};
@@ -37,12 +37,6 @@ void draw_score(game_t *game)
     sfText_setPosition(game->score->score, vector);
     sfText_setPosition(game->score->nb_score, vector_nb);
     sfText_setString(game->score->score, "score: ");
-}
-
-void create_clock(game_t *game)
-{
-    game->time->clock = sfClock_create();
-    game->time->time = sfClock_getElapsedTime(game->time->clock);
 }
 
 void upgrade_score(game_t *game)

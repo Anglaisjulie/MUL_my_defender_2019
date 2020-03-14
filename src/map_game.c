@@ -25,6 +25,4 @@ void background_play(sfRenderWindow *window, game_t *game)
 {
     sfRenderWindow_drawSprite
                             (window, game->play->obj->background->sprite, NULL);
-    sfRenderWindow_drawSprite
-                            (window, game->play->castle->body->sprite, NULL);
 }

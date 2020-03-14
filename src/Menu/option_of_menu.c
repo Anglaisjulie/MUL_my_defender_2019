@@ -16,13 +16,7 @@ void option_menu_map(sfRenderWindow *window, game_t *game)
         start = 1;
     }
     if (game->menu->location == PLAY) {
-        background_play(window, game);
-        display_location_tower(window, game);
-        display_tower(window, game);
-        check_draw_tower(window, game);
-        sfRenderWindow_drawText(window, game->score->score, NULL);
-        sfRenderWindow_drawText(window, game->score->nb_score, NULL);
-        upgrade_score(game);
+        action_play(window, game);
     }
     if (game->menu->location == INFO) {
     }
@@ -40,4 +34,18 @@ void action_menu(sfRenderWindow *window, game_t *game, int start)
     button_same_mouse(window, game, EXIT);
     button_same_mouse(window, game, SETTINGS);
     display_button_menu(window, game);
+}
+
+void action_play(sfRenderWindow *window, game_t *game)
+{
+    background_play(window, game);
+    display_enemy(window, game);
+    sfRenderWindow_drawSprite
+                            (window, game->play->castle->body->sprite, NULL);
+    display_location_tower(window, game);
+    display_tower(window, game);
+    check_draw_tower(window, game);
+    sfRenderWindow_drawText(window, game->score->score, NULL);
+    sfRenderWindow_drawText(window, game->score->nb_score, NULL);
+    upgrade_score(game);
 }

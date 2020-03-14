@@ -16,6 +16,7 @@ FILE_LIST =		main.c 														\
 				manage_event.c 												\
 				map_game.c 													\
 				create_game.c												\
+				create_clock.c												\
 				Malloc/malloc_game.c										\
 				Malloc/malloc_menu.c										\
 				Malloc/malloc_play.c										\
@@ -34,7 +35,8 @@ FILE_LIST =		main.c 														\
 				Tower/hitbox_tower.c										\
 				Tower/event_tower.c											\
 				Castle/create_castle.c										\
-				Ennemi/ennemi.c 											\
+				Enemy/enemy.c 												\
+				Enemy/enemy_path.c 											\
 				Score/score.c												\
 				destroy.c 													\
 
@@ -57,7 +59,7 @@ clean:
 	$(RM) src/*.o
 	$(RM) src/Menu/*.o
 	$(RM) src/Tower/*.o
-	$(RM) src/Ennemi/*.o
+	$(RM) src/Enemy/*.o
 	$(RM) src/Castle/*.o
 	$(RM) src/Score/*.o
 	$(RM) src/Malloc/*.o

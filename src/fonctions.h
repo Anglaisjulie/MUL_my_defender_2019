@@ -68,10 +68,11 @@ typedef struct menu_s {
     int *rect_button_b;
 } menu_t;
 
-typedef struct ennemi_s {
+typedef struct enemy_s {
     basicobject_t *body;
+    sfClock *clock;
     int life;
-} ennemi_t;
+} enemy_t;
 
 typedef struct tower_s {
     basicobject_t *body;
@@ -93,7 +94,7 @@ typedef struct castle_s {
 
 typedef struct play_s {
     object_t *obj;
-    ennemi_t *ennemi;
+    enemy_t *enemy;
     location_t *location;
     tower_t *tower_basic;
     tower_t *tower_slow;
@@ -119,6 +120,7 @@ int game_malloc_tower_body(game_t *);
 int game_loop(sfRenderWindow *, game_t *);
 int game_malloc_tower_location(game_t *);
 int game_malloc_text(game_t *);
+int game_malloc_enemy(game_t *);
 int game_malloc(game_t *);
 void create_game(sfRenderWindow *, game_t *);
 
@@ -171,6 +173,8 @@ void option_menu_map(sfRenderWindow *, game_t *);
 void initialize_rect(basicobject_t *);
 void destroy_menu(menu_t *);
 void action_menu(sfRenderWindow *, game_t *, int);
+void action_play(sfRenderWindow *, game_t *);
+
 
 //MUSIC :
 void music_menu(menu_t *);
@@ -183,7 +187,13 @@ void create_background_play(game_t *);
 
 
 //ENNEMIE
-basicobject_t *init_ennemi(ennemi_t *, int);
+basicobject_t *init_enemy(enemy_t *, int);
+void create_enemy(enemy_t *);
+void enemy_animation(sfRenderWindow *, enemy_t *, int);
+void display_enemy(sfRenderWindow *, game_t *);
+void enemy_move(enemy_t *, int);
+void path_x(enemy_t *, sfVector2f, int);
+void path_y(enemy_t *, sfVector2f, int);
 
 //DESTROY, FREE
 void destroy_basic_element_of_play(play_t *);
@@ -191,7 +201,7 @@ void destroy_music(menu_t *);
 void destroy_game(game_t *, sfRenderWindow *);
 
 //SCORE
-void draw_score(game_t *game);
+void create_score(game_t *game);
 void upgrade_score(game_t *game);
 void create_clock(game_t *game);
 

@@ -15,5 +15,6 @@ int game_malloc(game_t *game)
     game_malloc_tower_location(game);
     game_malloc_menu(game);
     game_malloc_text(game);
+    game_malloc_enemy(game);
     return (0);
 }

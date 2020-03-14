@@ -18,12 +18,25 @@ int game_malloc_play(game_t *game)
     game->play->obj->background = malloc(sizeof(basicobject_t));
     if (game->play->obj->background == NULL)
         return (ERROR);
-    game->play->ennemi = malloc(sizeof(ennemi_t) * 20);
-    if (game->play->ennemi == NULL)
-        return (ERROR);
     game->play->location = malloc(sizeof(location_t) * 5);
     if (game->play->location == NULL)
         return (ERROR);
+    return (0);
+}
+
+int game_malloc_enemy(game_t *game)
+{
+    game->play->enemy = malloc(sizeof(enemy_t) * 20);
+    if (game->play->enemy == NULL)
+        return (ERROR);
+    for (int i = 0; i != 20; i++) {
+        game->play->enemy[i].body = malloc(sizeof(basicobject_t));
+        if (game->play->enemy[i].body == NULL)
+            return (ERROR);
+        game->play->enemy[i].clock = malloc(sizeof(sfClock *));
+        if (game->play->enemy[i].clock == NULL)
+            return (ERROR);
+    }
     return (0);
 }
 
@@ -67,7 +80,7 @@ int game_malloc_tower_location(game_t *game)
 {
     for (int i = 0; i != 5; i++) {
         game->play->location[i].tower = malloc(sizeof(basicobject_t));
-        if (game->play->location->tower == NULL)
+        if (game->play->location[i].tower == NULL)
             return (ERROR);
         game->play->location[i].full = OK;
     }
@@ -77,8 +90,8 @@ int game_malloc_tower_location(game_t *game)
     game->play->castle->body = malloc(sizeof(basicobject_t));
     if (game->play->castle->body == NULL)
             return (ERROR);
-    game->play->castle->life = malloc(sizeof(basicobject_t));
-    if (game->play->castle->life == NULL)
+    game->play->castle->heart = malloc(sizeof(basicobject_t));
+    if (game->play->castle->heart == NULL)
             return (ERROR);
     return (0);
 }
