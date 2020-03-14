@@ -21,7 +21,7 @@ void create_background_play(game_t *game)
     create_castle(game->play->castle);
 }
 
-void background_play(sfRenderWindow *window, game_t *game)
+void display_background_play(sfRenderWindow *window, game_t *game)
 {
     sfRenderWindow_drawSprite
                             (window, game->play->obj->background->sprite, NULL);

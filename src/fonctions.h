@@ -15,6 +15,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#define NB_BUTTON (4)
+#define NB_ENEMY (6)
+#define NB_TOWER (6)
+#define NB_LOCATION (5)
+#define NB_HEART (3)
+
 static const int ERROR = 84;
 
 static const int KO = 0;
@@ -123,6 +129,7 @@ int game_malloc_text(game_t *);
 int game_malloc_enemy(game_t *);
 int game_malloc(game_t *);
 void create_game(sfRenderWindow *, game_t *);
+void define_value(game_t *);
 
 
 //TOWER :
@@ -145,6 +152,14 @@ void check_ko_location(sfRenderWindow *, game_t *);
 
 //CASTLE
 void create_castle(castle_t *);
+basicobject_t init_heart(castle_t *, float, float, int);
+void display_castle(sfRenderWindow *, game_t *);
+void create_heart(game_t *);
+void option_heart_one(play_t *);
+void option_heart_two(play_t *);
+void option_heart_three(play_t *);
+void display_life(sfRenderWindow *, game_t *);
+
 
 //EVENT :
 void manage_event(sfRenderWindow *, game_t *);
@@ -180,7 +195,7 @@ void action_play(sfRenderWindow *, game_t *);
 void music_menu(menu_t *);
 
 //MAP :
-void background_play(sfRenderWindow *, game_t *);
+void display_background_play(sfRenderWindow *, game_t *);
 void create_background_play(game_t *);
 
 //ERROR MANAGEMENT
@@ -194,6 +209,7 @@ void display_enemy(sfRenderWindow *, game_t *);
 void enemy_move(enemy_t *, int);
 void path_x(enemy_t *, sfVector2f, int);
 void path_y(enemy_t *, sfVector2f, int);
+void kill_enemy_with_castle(play_t *, int);
 
 //DESTROY, FREE
 void destroy_basic_element_of_play(play_t *);
@@ -204,5 +220,9 @@ void destroy_game(game_t *, sfRenderWindow *);
 void create_score(game_t *game);
 void upgrade_score(game_t *game);
 void create_clock(game_t *game);
+void display_text(sfRenderWindow *, game_t *);
+
+//LIB
+char *my_itoa(int);
 
 #endif

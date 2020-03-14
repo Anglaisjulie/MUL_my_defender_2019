@@ -17,6 +17,6 @@ void create_game(sfRenderWindow *window, game_t *game)
     create_score(game);
     create_clock(game);
     create_tower(game);
+    create_heart(game);
     create_enemy(game->play->enemy);
-
 }

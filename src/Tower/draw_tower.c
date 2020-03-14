@@ -21,7 +21,7 @@ void display_tower(sfRenderWindow *window, game_t *game)
 
 void check_draw_tower(sfRenderWindow *window, game_t *game)
 {
-    for (int i = 1; i != 6; i++) {
+    for (int i = 1; i != NB_TOWER; i++) {
         if (game->play->tower_basic[i].activated == DRAW) {
             sfRenderWindow_drawSprite(window,
                             game->play->tower_basic[i].body->sprite, NULL);

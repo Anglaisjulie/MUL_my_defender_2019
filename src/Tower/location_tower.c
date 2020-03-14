@@ -48,7 +48,7 @@ void display_location_tower(sfRenderWindow *window, game_t *game)
 
 void check_ko_location(sfRenderWindow *window, game_t *game)
 {
-    for (int i = 0; i != 5; i++) {
+    for (int i = 0; i != NB_LOCATION; i++) {
         if (game->play->location[i].full == OK) {
             sfRenderWindow_drawSprite(window,
                                 game->play->location[i].tower->sprite, NULL);

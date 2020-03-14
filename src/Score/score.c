@@ -7,24 +7,6 @@
 
 #include "../fonctions.h"
 
-char *my_itoa(int nb)
-{
-    int length = 0;
-    char *str = NULL;
-
-    while (nb > 0) {
-        nb = nb / 10;
-        length++;
-    }
-    str = malloc(sizeof(char *) * length + 1);
-    str[length] = '\0';
-    while (length--) {
-        str[length] = nb % 10 + '0';
-        nb = nb / 10;
-    }
-    return (str);
-}
-
 void create_score(game_t *game)
 {
     sfVector2f vector = {1600, 900};
@@ -48,4 +30,10 @@ void upgrade_score(game_t *game)
         sfClock_restart(game->time->clock);
     }
     sfText_setString(game->score->nb_score, "0000");
+}
+
+void display_text(sfRenderWindow *window, game_t *game)
+{
+    sfRenderWindow_drawText(window, game->score->score, NULL);
+    sfRenderWindow_drawText(window, game->score->nb_score, NULL);
 }

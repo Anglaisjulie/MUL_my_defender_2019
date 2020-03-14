@@ -20,7 +20,7 @@ void path_x(enemy_t *enemy, sfVector2f position, int n)
     if ((position.x < 210)
         || (position.y == 200 && position.x < 520)
         || (position.y == 600 && position.x < 935)
-        || (position.y == 400 && position.x < 1506 && position.x > 800)) {
+        || (position.y == 400 && position.x < 1500 && position.x > 800)) {
         enemy[n].body->vector.x += 1;
         enemy[n].body->vector.y += 0;
     }

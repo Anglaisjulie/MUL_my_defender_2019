@@ -18,13 +18,13 @@ int game_malloc_menu(game_t *game)
     game->menu->obj->background = malloc(sizeof(basicobject_t));
     if (game->menu->obj->background == NULL)
         return (ERROR);
-    game->menu->obj->button = malloc(sizeof(basicobject_t) * 4);
+    game->menu->obj->button = malloc(sizeof(basicobject_t) * NB_BUTTON);
     if (game->menu->obj->button == NULL)
         return (ERROR);
-    game->menu->rect_button_a = malloc(sizeof(int) * 4);
+    game->menu->rect_button_a = malloc(sizeof(int) * NB_BUTTON);
     if (game->menu->rect_button_a == NULL)
         return (ERROR);
-    game->menu->rect_button_b = malloc(sizeof(int) * 4);
+    game->menu->rect_button_b = malloc(sizeof(int) * NB_BUTTON);
     if (game->menu->rect_button_b == NULL)
         return (ERROR);
     return (0);

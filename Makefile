@@ -15,8 +15,10 @@ FILE_LIST =		main.c 														\
 				game.c 														\
 				manage_event.c 												\
 				map_game.c 													\
+				value_game.c 												\
 				create_game.c												\
 				create_clock.c												\
+				Lib/my_itoa.c												\
 				Malloc/malloc_game.c										\
 				Malloc/malloc_menu.c										\
 				Malloc/malloc_play.c										\
@@ -35,8 +37,11 @@ FILE_LIST =		main.c 														\
 				Tower/hitbox_tower.c										\
 				Tower/event_tower.c											\
 				Castle/create_castle.c										\
+				Castle/life_castle.c										\
+				Castle/option_life.c										\
 				Enemy/enemy.c 												\
 				Enemy/enemy_path.c 											\
+				Enemy/kill_enemy.c 											\
 				Score/score.c												\
 				destroy.c 													\
 

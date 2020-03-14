@@ -17,3 +17,9 @@ void create_castle(castle_t *castle)
     castle->body->vector.y = 300;
     sfSprite_setPosition(castle->body->sprite, castle->body->vector);
 }
+
+void display_castle(sfRenderWindow *window, game_t *game)
+{
+    sfRenderWindow_drawSprite
+                            (window, game->play->castle->body->sprite, NULL);
+}

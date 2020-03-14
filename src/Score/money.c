@@ -5,7 +5,7 @@
 ** money
 */
 
-#include "fonctions.h"
+#include "../fonctions.h"
 
 void draw_money(game_t *game)
 {

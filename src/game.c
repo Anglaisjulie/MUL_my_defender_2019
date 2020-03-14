@@ -12,9 +12,7 @@ void init_game(sfRenderWindow *window, game_t *game)
     game_malloc(game);
     create_game(window, game);
     sfRenderWindow_setFramerateLimit(window, 30);
-    game->menu->location = MENU;
-    game->play->coin = 500;
-    game->time->score = 0;
+    define_value(game);
 }
 
 int game_loop(sfRenderWindow *window, game_t *game)

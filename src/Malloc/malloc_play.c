@@ -18,7 +18,7 @@ int game_malloc_play(game_t *game)
     game->play->obj->background = malloc(sizeof(basicobject_t));
     if (game->play->obj->background == NULL)
         return (ERROR);
-    game->play->location = malloc(sizeof(location_t) * 5);
+    game->play->location = malloc(sizeof(location_t) * NB_LOCATION);
     if (game->play->location == NULL)
         return (ERROR);
     return (0);
@@ -26,10 +26,10 @@ int game_malloc_play(game_t *game)
 
 int game_malloc_enemy(game_t *game)
 {
-    game->play->enemy = malloc(sizeof(enemy_t) * 20);
+    game->play->enemy = malloc(sizeof(enemy_t) * NB_ENEMY);
     if (game->play->enemy == NULL)
         return (ERROR);
-    for (int i = 0; i != 20; i++) {
+    for (int i = 0; i != NB_ENEMY; i++) {
         game->play->enemy[i].body = malloc(sizeof(basicobject_t));
         if (game->play->enemy[i].body == NULL)
             return (ERROR);
@@ -42,16 +42,16 @@ int game_malloc_enemy(game_t *game)
 
 int game_malloc_tower(game_t *game)
 {
-    game->play->tower_basic = malloc(sizeof(tower_t) * 6);
+    game->play->tower_basic = malloc(sizeof(tower_t) * NB_TOWER);
     if (game->play->tower_basic == NULL)
         return (ERROR);
-    game->play->tower_slow = malloc(sizeof(tower_t) * 6);
+    game->play->tower_slow = malloc(sizeof(tower_t) * NB_TOWER);
     if (game->play->tower_slow == NULL)
         return (ERROR);
-    game->play->tower_wall = malloc(sizeof(tower_t) * 6);
+    game->play->tower_wall = malloc(sizeof(tower_t) * NB_TOWER);
     if (game->play->tower_wall == NULL)
         return (ERROR);
-    game->play->tower_profit = malloc(sizeof(tower_t) * 6);
+    game->play->tower_profit = malloc(sizeof(tower_t) * NB_TOWER);
     if (game->play->tower_profit == NULL)
         return (ERROR);
     return (0);
@@ -59,7 +59,7 @@ int game_malloc_tower(game_t *game)
 
 int game_malloc_tower_body(game_t *game)
 {
-    for (int i = 0; i != 6; i++) {
+    for (int i = 0; i != NB_TOWER; i++) {
         game->play->tower_basic[i].body = malloc(sizeof(basicobject_t));
         if (game->play->tower_basic[i].body == NULL)
             return (ERROR);
@@ -78,7 +78,7 @@ int game_malloc_tower_body(game_t *game)
 
 int game_malloc_tower_location(game_t *game)
 {
-    for (int i = 0; i != 5; i++) {
+    for (int i = 0; i != NB_LOCATION; i++) {
         game->play->location[i].tower = malloc(sizeof(basicobject_t));
         if (game->play->location[i].tower == NULL)
             return (ERROR);
@@ -90,7 +90,7 @@ int game_malloc_tower_location(game_t *game)
     game->play->castle->body = malloc(sizeof(basicobject_t));
     if (game->play->castle->body == NULL)
             return (ERROR);
-    game->play->castle->heart = malloc(sizeof(basicobject_t));
+    game->play->castle->heart = malloc(sizeof(basicobject_t) * NB_HEART);
     if (game->play->castle->heart == NULL)
             return (ERROR);
     return (0);

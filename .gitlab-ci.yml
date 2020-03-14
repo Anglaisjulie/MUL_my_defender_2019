@@ -2,7 +2,7 @@ image:  epitechcontent/epitest-docker
 
 stages:
     - build
-    
+
 delivery:
     stage: build
     script:

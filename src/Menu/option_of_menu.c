@@ -38,14 +38,13 @@ void action_menu(sfRenderWindow *window, game_t *game, int start)
 
 void action_play(sfRenderWindow *window, game_t *game)
 {
-    background_play(window, game);
+    display_background_play(window, game);
     display_enemy(window, game);
-    sfRenderWindow_drawSprite
-                            (window, game->play->castle->body->sprite, NULL);
+    display_castle(window, game);
     display_location_tower(window, game);
     display_tower(window, game);
     check_draw_tower(window, game);
-    sfRenderWindow_drawText(window, game->score->score, NULL);
-    sfRenderWindow_drawText(window, game->score->nb_score, NULL);
+    display_text(window, game);
+    display_life(window, game);
     upgrade_score(game);
 }
