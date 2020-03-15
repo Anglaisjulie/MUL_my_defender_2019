@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 #define NB_BUTTON (4)
-#define NB_ENEMY (6)
+#define NB_ENEMY (3)
 #define NB_TOWER (6)
 #define NB_LOCATION (5)
 #define NB_HEART (3)
@@ -26,6 +26,11 @@ static const int ERROR = 84;
 static const int KO = 0;
 static const int OK = 1;
 static const int DRAW = 2;
+
+static const int BASIC = 11;
+static const int SLOW = 12;
+static const int PROFIT = 13;
+static const int WALL = 14;
 
 static const int MAX_SCREEN_X = 1920;
 static const int MAX_SCREEN_Y = 1080;
@@ -89,7 +94,9 @@ typedef struct tower_s {
 
 typedef struct location_s {
     basicobject_t *tower;
+    basicobject_t *circle;
     int full;
+    int type;
 } location_t;
 
 typedef struct castle_s {
@@ -201,7 +208,7 @@ void create_background_play(game_t *);
 //ERROR MANAGEMENT
 
 
-//ENNEMIE
+//ENEMY
 basicobject_t *init_enemy(enemy_t *, int);
 void create_enemy(enemy_t *);
 void enemy_animation(sfRenderWindow *, enemy_t *, int);
@@ -210,6 +217,15 @@ void enemy_move(enemy_t *, int);
 void path_x(enemy_t *, sfVector2f, int);
 void path_y(enemy_t *, sfVector2f, int);
 void kill_enemy_with_castle(play_t *, int);
+
+//DAMAGE
+basicobject_t *init_circle(location_t *, float, float, int);
+void create_circle(location_t *);
+void display_circle(sfRenderWindow *, game_t *);
+void mouse_on_tower(sfRenderWindow *, game_t *, int);
+void enemy_in_circle(game_t *, int, int);
+void type_of_damage(game_t *, int, int);
+void damage_enemy(game_t *);
 
 //DESTROY, FREE
 void destroy_basic_element_of_play(play_t *);

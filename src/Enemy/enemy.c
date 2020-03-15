@@ -7,7 +7,7 @@
 
 #include "../fonctions.h"
 
-basicobject_t *init_ennemi(enemy_t *enemy, int n)
+basicobject_t *init_enemy(enemy_t *enemy, int n)
 {
     sfIntRect rect = {0, 0, 90, 87};
 
@@ -15,19 +15,19 @@ basicobject_t *init_ennemi(enemy_t *enemy, int n)
                                         ("picture/enemy.png", NULL);
     enemy[n].body->sprite = sfSprite_create();
     sfSprite_setTexture(enemy[n].body->sprite, enemy[n].body->texture, 1);
-    enemy[n].body->vector.x = 20 * (n - 15);
+    enemy[n].body->vector.x = 50 * ( - n);
     enemy[n].body->vector.y = 500;
     sfSprite_setPosition(enemy[n].body->sprite, enemy[n].body->vector);
     enemy[n].body->rect = rect;
     sfSprite_setTextureRect(enemy[n].body->sprite, enemy[n].body->rect);
-    enemy[n].life = OK;
+    enemy[n].life = 100;
     return (enemy[n].body);
 }
 
 void create_enemy(enemy_t *enemy)
 {
     for (int i = 0; i != NB_ENEMY; i++)
-        enemy[i].body = init_ennemi(enemy, i);
+        enemy[i].body = init_enemy(enemy, i);
 }
 
 void enemy_animation(sfRenderWindow *window, enemy_t *enemy, int n)
@@ -42,7 +42,7 @@ void enemy_animation(sfRenderWindow *window, enemy_t *enemy, int n)
         sfSprite_setTextureRect(enemy[n].body->sprite, enemy[n].body->rect);
         sfClock_restart(enemy[n].clock);
     }
-    if (position.x != 1500)
+    if (position.x != 1500 && enemy[n].life != 0)
         sfRenderWindow_drawSprite(window, enemy[n].body->sprite, NULL);
 }
 

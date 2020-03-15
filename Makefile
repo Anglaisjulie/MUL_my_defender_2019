@@ -42,6 +42,8 @@ FILE_LIST =		main.c 														\
 				Enemy/enemy.c 												\
 				Enemy/enemy_path.c 											\
 				Enemy/kill_enemy.c 											\
+				Damage/create_circle.c 										\
+				Damage/enemy_in_circle.c 										\
 				Score/score.c												\
 				destroy.c 													\
 
@@ -68,6 +70,7 @@ clean:
 	$(RM) src/Castle/*.o
 	$(RM) src/Score/*.o
 	$(RM) src/Malloc/*.o
+	$(RM) src/Damage/*.o
 
 fclean: clean
 	$(RM) $(NAME)

@@ -82,6 +82,9 @@ int game_malloc_tower_location(game_t *game)
         game->play->location[i].tower = malloc(sizeof(basicobject_t));
         if (game->play->location[i].tower == NULL)
             return (ERROR);
+        game->play->location[i].circle = malloc(sizeof(basicobject_t));
+        if (game->play->location[i].circle == NULL)
+            return (ERROR);
         game->play->location[i].full = OK;
     }
     game->play->castle = malloc(sizeof(castle_t));

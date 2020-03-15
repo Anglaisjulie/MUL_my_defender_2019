@@ -39,9 +39,11 @@ void action_menu(sfRenderWindow *window, game_t *game, int start)
 void action_play(sfRenderWindow *window, game_t *game)
 {
     display_background_play(window, game);
+    damage_enemy(game);
     display_enemy(window, game);
     display_castle(window, game);
     display_location_tower(window, game);
+    display_circle(window, game);
     display_tower(window, game);
     check_draw_tower(window, game);
     display_text(window, game);
