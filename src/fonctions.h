@@ -231,6 +231,8 @@ void damage_enemy(game_t *);
 void destroy_basic_element_of_play(play_t *);
 void destroy_music(menu_t *);
 void destroy_game(game_t *, sfRenderWindow *);
+void destroy_enemy(enemy_t *);
+void destroy_castle(castle_t *);
 
 //SCORE
 void create_score(game_t *game);

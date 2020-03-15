@@ -30,5 +30,7 @@ void destroy_game(game_t *game, sfRenderWindow *window)
 {
     destroy_tower(game->play);
     destroy_basic_element_of_play(game->play);
+    destroy_enemy(game->play->enemy);
+    destroy_castle(game->play->castle);
     sfRenderWindow_destroy(window);
 }
