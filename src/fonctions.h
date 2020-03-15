@@ -133,6 +133,7 @@ typedef struct game_s {
     play_t *play;
     score_t *score;
     times_t *time;
+    basicobject_t *cursor;
 } game_t;
 
 //GAME INIT :
@@ -151,6 +152,9 @@ int game_malloc(game_t *);
 void create_game(sfRenderWindow *, game_t *);
 void define_value(game_t *);
 
+//CURSOR
+basicobject_t *init_cursor(game_t *);
+void change_mouse(sfRenderWindow *, game_t *);
 
 //TOWER :
 location_t init_location_tower(location_t *, float, float);

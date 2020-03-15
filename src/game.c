@@ -21,6 +21,7 @@ int game_loop(sfRenderWindow *window, game_t *game)
         sfRenderWindow_clear(window, sfBlack);
         manage_event(window, game);
         option_menu_map(window, game);
+        change_mouse(window, game);
         sfRenderWindow_display(window);
     }
     return (0);

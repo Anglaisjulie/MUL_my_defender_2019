@@ -10,6 +10,7 @@
 void create_game(sfRenderWindow *window, game_t *game)
 {
     game_malloc(game);
+    init_cursor(game);
     background_menu(window, game);
     create_htp(game);
     create_button_menu(game);

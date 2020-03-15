@@ -13,6 +13,7 @@ SRC_DIR =		src/
 
 FILE_LIST =		main.c 														\
 				game.c 														\
+				cursor.c 													\
 				manage_event.c 												\
 				map_game.c 													\
 				value_game.c 												\

@@ -56,6 +56,8 @@ void destroy_castle(game_t *game)
     sfSprite_destroy(game->menu->htp->sprite);
     sfTexture_destroy(game->menu->obj->background->texture);
     sfSprite_destroy(game->menu->obj->background->sprite);
+    sfTexture_destroy(game->cursor->texture);
+    sfSprite_destroy(game->cursor->sprite);
 
 }
 //enemy, heart, castle
