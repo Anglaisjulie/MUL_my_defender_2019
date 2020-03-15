@@ -10,19 +10,18 @@
 void option_menu_map(sfRenderWindow *window, game_t *game)
 {
     static int start = 0;
+    static int play = 0;
 
     if (game->menu->location == MENU) {
         action_menu(window, game, start);
         start = 1;
     }
     if (game->menu->location == PLAY) {
-        action_play(window, game);
+        action_play(window, game, play);
+        play = 1;
     }
-    if (game->menu->location == INFO) {
-        sfRenderWindow_drawSprite(window, game->menu->obj->background->sprite,
-                                                                        NULL);
+    if (game->menu->location == INFO)
         display_htp(window, game);
-    }
     if (game->menu->location == SETTINGS) {
     }
     if (game->menu->location == VICTORY)
@@ -43,8 +42,10 @@ void action_menu(sfRenderWindow *window, game_t *game, int start)
     display_button_menu(window, game);
 }
 
-void action_play(sfRenderWindow *window, game_t *game)
+void action_play(sfRenderWindow *window, game_t *game, int play)
 {
+    if (play == 0)
+        music_game(game->play);
     display_background_play(window, game);
     damage_enemy(game);
     display_enemy(window, game);

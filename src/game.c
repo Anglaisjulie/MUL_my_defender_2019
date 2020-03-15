@@ -32,5 +32,6 @@ void destroy_game(game_t *game, sfRenderWindow *window)
     destroy_basic_element_of_play(game->play);
     destroy_enemy(game->play->enemy);
     destroy_castle(game);
+    destroy_music_game(game->play);
     sfRenderWindow_destroy(window);
 }

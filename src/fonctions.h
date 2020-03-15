@@ -208,13 +208,15 @@ void option_menu_map(sfRenderWindow *, game_t *);
 void initialize_rect(basicobject_t *);
 void destroy_menu(menu_t *);
 void action_menu(sfRenderWindow *, game_t *, int);
-void action_play(sfRenderWindow *, game_t *);
+void action_play(sfRenderWindow *, game_t *, int);
 basicobject_t *init_htp(basicobject_t *);
 void create_htp(game_t *);
 void display_htp(sfRenderWindow *, game_t *);
 
 //MUSIC :
 void music_menu(menu_t *);
+void music_game(play_t *);
+
 
 //MAP :
 void display_background_play(sfRenderWindow *, game_t *);
@@ -253,7 +255,8 @@ void damage_enemy(game_t *);
 
 //DESTROY, FREE
 void destroy_basic_element_of_play(play_t *);
-void destroy_music(menu_t *);
+void destroy_music_menu(menu_t *);
+void destroy_music_game(play_t *);
 void destroy_game(game_t *, sfRenderWindow *);
 void destroy_enemy(enemy_t *);
 void destroy_castle(game_t *);

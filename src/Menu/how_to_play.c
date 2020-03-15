@@ -25,5 +25,7 @@ void create_htp(game_t *game)
 
 void display_htp(sfRenderWindow *window, game_t *game)
 {
+    sfRenderWindow_drawSprite(window, game->menu->obj->background->sprite,
+                                                                        NULL);
     sfRenderWindow_drawSprite(window, game->menu->htp->sprite, NULL);
 }

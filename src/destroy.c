@@ -11,7 +11,7 @@ void destroy_menu(menu_t *menu)
 {
     sfTexture_destroy(menu->obj->button->texture);
     sfSprite_destroy(menu->obj->button->sprite);
-    destroy_music(menu);
+    destroy_music_menu(menu);
 }
 
 void destroy_tower(play_t *play)
