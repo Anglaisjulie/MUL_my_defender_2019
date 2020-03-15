@@ -44,14 +44,6 @@ static const int SETTINGS = 3;
 static const int ON_BUTTON = 398;
 static const int OUTSIDE_BUTTON = 0;
 
-
-typedef struct coin_s {
-    int coin;
-    float seconds;
-    sfTime time;
-    sfClock *clock;
-} coin_t;
-
 typedef struct times_s {
     int score;
     float seconds;
@@ -133,7 +125,6 @@ typedef struct game_s {
     play_t *play;
     score_t *score;
     times_t *time;
-    coin_t *coin;
 } game_t;
 
 //GAME INIT :
