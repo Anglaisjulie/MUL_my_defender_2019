@@ -16,6 +16,7 @@ void create_score(game_t *game)
     game->score->nb_score = sfText_create();
     game->score->score_f = sfFont_createFromFile("score.ttf");
     sfText_setFont(game->score->score, game->score->score_f);
+    sfText_setFont(game->score->nb_score, game->score->score_f);
     sfText_setPosition(game->score->score, vector);
     sfText_setPosition(game->score->nb_score, vector_nb);
     sfText_setString(game->score->score, "score: ");
@@ -23,13 +24,17 @@ void create_score(game_t *game)
 
 void upgrade_score(game_t *game)
 {
-    game->time->score = 0;
+    static char *score = NULL;
 
-    if (sfClock_getElapsedTime(game->time->clock).microseconds / 100000) {
+    game->time->time = sfClock_getElapsedTime(game->time->clock);
+    game->time->seconds = game->time->time.microseconds / 100000;
+    score = my_itoa(game->time->score);
+
+    if (game->time->seconds > 10.0) {
         game->time->score = game->time->score + 5;
+        sfText_setString(game->score->nb_score, score);
         sfClock_restart(game->time->clock);
     }
-    sfText_setString(game->score->nb_score, "0000");
 }
 
 void display_text(sfRenderWindow *window, game_t *game)

@@ -13,4 +13,5 @@ void define_value(game_t *game)
     game->play->coin = 500;
     game->play->castle->life = 6;
     game->time->score = 0;
+    game->coin->coin = 0;
 }

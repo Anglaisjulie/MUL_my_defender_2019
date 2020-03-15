@@ -7,10 +7,38 @@
 
 #include "../fonctions.h"
 
-void draw_money(game_t *game)
+void create_money(game_t *game)
 {
+    sfVector2f vector = {1600, 860};
+    sfVector2f vector_nb = {1700, 860};
 
+    game->score->coin = sfText_create();
+    game->score->nb_coin = sfText_create();
+    game->score->score_f = sfFont_createFromFile("score.ttf");
+    sfText_setFont(game->score->coin, game->score->score_f);
+    sfText_setFont(game->score->nb_coin, game->score->score_f);
+    sfText_setPosition(game->score->coin, vector);
+    sfText_setPosition(game->score->nb_coin, vector_nb);
+    sfText_setString(game->score->coin, "coin: ");
+}
 
+void upgrade_coin(game_t *game)
+{
+    static char *coin = NULL;
 
+    game->coin->time = sfClock_getElapsedTime(game->coin->clock);
+    game->coin->seconds = game->coin->time.microseconds / 100000;
+    coin = my_itoa(game->coin->coin);
 
+    if (game->coin->seconds > 50.0) {
+        game->coin->coin = game->coin->coin + 10;
+        sfText_setString(game->score->nb_coin, coin);
+        sfClock_restart(game->coin->clock);
+    }
+}
+
+void display_coin(sfRenderWindow *window, game_t *game)
+{
+    sfRenderWindow_drawText(window, game->score->coin, NULL);
+    sfRenderWindow_drawText(window, game->score->nb_coin, NULL);
 }

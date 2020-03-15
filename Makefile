@@ -47,6 +47,7 @@ FILE_LIST =		main.c 														\
 				Damage/enemy_in_circle.c 									\
 				Score/score.c												\
 				destroy.c 													\
+				Score/money.c 												\
 
 SRC		= 		$(addprefix $(SRC_DIR), $(FILE_LIST))
 
