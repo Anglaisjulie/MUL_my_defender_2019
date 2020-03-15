@@ -10,7 +10,8 @@
 basicobject_t *init_cursor(game_t *game)
 {
     game->cursor = malloc(sizeof(basicobject_t));
-    game->cursor->texture = sfTexture_createFromFile("picture/cursor.png", NULL);
+    game->cursor->texture = sfTexture_createFromFile
+                                                ("picture/cursor.png", NULL);
     game->cursor->sprite = sfSprite_create();
     sfSprite_setTexture(game->cursor->sprite, game->cursor->texture, 1);
     return (game->cursor);

@@ -60,4 +60,3 @@ void destroy_castle(game_t *game)
     sfSprite_destroy(game->cursor->sprite);
 
 }
-//enemy, heart, castle

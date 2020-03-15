@@ -59,7 +59,7 @@ OBJ		=		$(SRC:.c=.o)
 NAME 	= 		my_defender
 
 CFLAGS  =		-W -Wextra -Wall -I./include/
-CFLAGS	+=		-fdiagnostics-color -g3
+CFLAGS	+=		-fdiagnostics-color
 CFLAGS	+=		-lcsfml-window -lcsfml-graphics -lcsfml-audio -lcsfml-system
 
 all: 	$(NAME)
