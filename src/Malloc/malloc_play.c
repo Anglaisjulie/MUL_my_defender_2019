@@ -36,6 +36,9 @@ int game_malloc_enemy(game_t *game)
         game->play->enemy[i].clock = malloc(sizeof(sfClock *));
         if (game->play->enemy[i].clock == NULL)
             return (ERROR);
+        game->play->enemy[i].b_life = malloc(sizeof(basicobject_t));
+        if (game->play->enemy[i].b_life == NULL)
+            return (ERROR);
     }
     return (0);
 }

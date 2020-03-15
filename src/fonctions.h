@@ -81,6 +81,7 @@ typedef struct menu_s {
 
 typedef struct enemy_s {
     basicobject_t *body;
+    basicobject_t *b_life;
     sfClock *clock;
     int life;
 } enemy_t;
@@ -217,6 +218,8 @@ void enemy_move(enemy_t *, int);
 void path_x(enemy_t *, sfVector2f, int);
 void path_y(enemy_t *, sfVector2f, int);
 void kill_enemy_with_castle(play_t *, int);
+basicobject_t *init_life_enemy(enemy_t *, int);
+void create_life_enemy(enemy_t *);
 
 //DAMAGE
 basicobject_t *init_circle(location_t *, float, float, int);
@@ -233,6 +236,7 @@ void destroy_music(menu_t *);
 void destroy_game(game_t *, sfRenderWindow *);
 void destroy_enemy(enemy_t *);
 void destroy_castle(castle_t *);
+void condition_destroy_menu(menu_t *);
 
 //SCORE
 void create_score(game_t *game);

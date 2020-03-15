@@ -41,9 +41,10 @@ FILE_LIST =		main.c 														\
 				Castle/option_life.c										\
 				Enemy/enemy.c 												\
 				Enemy/enemy_path.c 											\
+				Enemy/life_enemy.c 											\
 				Enemy/kill_enemy.c 											\
 				Damage/create_circle.c 										\
-				Damage/enemy_in_circle.c 										\
+				Damage/enemy_in_circle.c 									\
 				Score/score.c												\
 				destroy.c 													\
 

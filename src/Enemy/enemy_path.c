@@ -13,6 +13,7 @@ void enemy_move(enemy_t *enemy, int n)
     path_x(enemy, position, n);
     path_y(enemy, position, n);
     sfSprite_setPosition(enemy[n].body->sprite, enemy[n].body->vector);
+    sfSprite_setPosition(enemy[n].b_life->sprite, enemy[n].b_life->vector);
 }
 
 void path_x(enemy_t *enemy, sfVector2f position, int n)
@@ -22,7 +23,9 @@ void path_x(enemy_t *enemy, sfVector2f position, int n)
         || (position.y == 600 && position.x < 935)
         || (position.y == 400 && position.x < 1500 && position.x > 800)) {
         enemy[n].body->vector.x += 1;
+        enemy[n].b_life->vector.x += 1;
         enemy[n].body->vector.y += 0;
+        enemy[n].b_life->vector.y += 0;
     }
 }
 
@@ -31,10 +34,14 @@ void path_y(enemy_t *enemy, sfVector2f position, int n)
     if ((position.y > 200 && position.x == 210)
         || (position.y > 400 && position.x == 935)) {
         enemy[n].body->vector.x += 0;
+        enemy[n].b_life->vector.y += 0;
         enemy[n].body->vector.y += -1;
+        enemy[n].b_life->vector.y += -1;
     }
     if (position.y < 600 && position.x == 520) {
         enemy[n].body->vector.x += 0;
+        enemy[n].b_life->vector.x += 0;
         enemy[n].body->vector.y += 1;
+        enemy[n].b_life->vector.y += 1;
     }
 }

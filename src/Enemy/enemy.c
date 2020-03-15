@@ -42,8 +42,10 @@ void enemy_animation(sfRenderWindow *window, enemy_t *enemy, int n)
         sfSprite_setTextureRect(enemy[n].body->sprite, enemy[n].body->rect);
         sfClock_restart(enemy[n].clock);
     }
-    if (position.x != 1500 && enemy[n].life != 0)
+    if (position.x != 1500 && enemy[n].life != 0) {
         sfRenderWindow_drawSprite(window, enemy[n].body->sprite, NULL);
+        sfRenderWindow_drawSprite(window, enemy[n].b_life->sprite, NULL);
+    }
 }
 
 void display_enemy(sfRenderWindow *window, game_t *game)

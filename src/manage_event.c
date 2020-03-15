@@ -12,8 +12,10 @@ void manage_event(sfRenderWindow *window, game_t *game)
     sfEvent event;
 
     while (sfRenderWindow_pollEvent(window, &event)) {
-        if (event.type == sfEvtClosed)
+        if (event.type == sfEvtClosed) {
             sfRenderWindow_close(window);
+            condition_destroy_menu(game->menu);
+        }
         if (event.type == sfEvtMouseButtonReleased) {
             manage_plan(window, game);
         }
@@ -37,4 +39,10 @@ void event_play(sfRenderWindow *window, game_t *game)
     check_hitbox_tower(window, game);
     for (int i = 0; i != 5; i++)
         put_location(window, game, i);
+}
+
+void condition_destroy_menu(menu_t *menu)
+{
+    if (menu->location == MENU)
+        destroy_menu(menu);
 }

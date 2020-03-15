@@ -11,8 +11,8 @@ void init_game(sfRenderWindow *window, game_t *game)
 {
     game_malloc(game);
     create_game(window, game);
-    sfRenderWindow_setFramerateLimit(window, 30);
     define_value(game);
+    sfRenderWindow_setFramerateLimit(window, 30);
 }
 
 int game_loop(sfRenderWindow *window, game_t *game)
