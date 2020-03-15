@@ -22,7 +22,7 @@ void put_location_basic(sfRenderWindow *window, game_t *game, int n)
         && pos_mouse.y >= pos_location.y && pos_mouse.y <= rec_location.y)
         && (game->play->tower_basic[0].activated == OK)
         && (game->play->location[n].full == OK)
-        && (game->play->coin >= 50)) {
+        && (game->play->coin >= 10)) {
         game->play->tower_basic[n + 1].activated = DRAW;
         game->play->tower_basic[0].activated = KO;
         game->play->location[n].type = BASIC;
@@ -46,7 +46,7 @@ void put_location_profit(sfRenderWindow *window, game_t *game, int n)
         && pos_mouse.y >= pos_location.y && pos_mouse.y <= rec_location.y)
         && (game->play->tower_profit[0].activated == OK)
         && (game->play->location[n].full == OK)
-        && (game->play->coin >= 50)) {
+        && (game->play->coin >= 30)) {
         game->play->tower_profit[n + 1].activated = DRAW;
         game->play->tower_profit[0].activated = KO;
         game->play->location[n].full = KO;
@@ -70,7 +70,7 @@ void put_location_slow(sfRenderWindow *window, game_t *game, int n)
         && pos_mouse.y >= pos_location.y && pos_mouse.y <= rec_location.y)
         && (game->play->tower_slow[0].activated == OK)
         && (game->play->location[n].full == OK)
-        && (game->play->coin >= 50)) {
+        && (game->play->coin >= 15)) {
         game->play->tower_slow[n + 1].activated = DRAW;
         game->play->tower_slow[0].activated = KO;
         game->play->location[n].type = SLOW;
@@ -94,7 +94,7 @@ void put_location_wall(sfRenderWindow *window, game_t *game, int n)
         && pos_mouse.y >= pos_location.y && pos_mouse.y <= rec_location.y)
         && (game->play->tower_wall[0].activated == OK)
         && (game->play->location[n].full == OK)
-        && (game->play->coin >= 50)) {
+        && (game->play->coin >= 40)) {
         game->play->tower_wall[n + 1].activated = DRAW;
         game->play->tower_wall[0].activated = KO;
         game->play->location[n].type = WALL;

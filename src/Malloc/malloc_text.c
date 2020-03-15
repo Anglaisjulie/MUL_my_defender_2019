@@ -23,4 +23,5 @@ int game_malloc_state(game_t *game)
     game->play->state = malloc(sizeof(basicobject_t) * 2);
     if (game->play->state == NULL)
         return (ERROR);
+    return (0);
 }

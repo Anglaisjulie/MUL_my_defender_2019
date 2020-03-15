@@ -7,12 +7,14 @@
 
 #include "fonctions.h"
 
-int main(void)
+int main(int ac, char **argv)
 {
     sfRenderWindow *window;
     sfVideoMode mode = {MAX_SCREEN_X, MAX_SCREEN_Y, 32};
     game_t game = {0};
 
+    if (ac != 1)
+        return (ERROR);
     window = sfRenderWindow_create(mode, "My Defender", sfDefaultStyle, NULL);
     init_game(window, &game);
     game_loop(window, &game);
