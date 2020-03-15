@@ -10,7 +10,7 @@
 void define_value(game_t *game)
 {
     game->menu->location = MENU;
-    game->play->coin = 500;
+    game->play->coin = 25;
     game->play->castle->life = 6;
     game->time->score = 0;
 }

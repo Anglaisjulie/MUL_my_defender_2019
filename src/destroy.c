@@ -9,9 +9,7 @@
 
 void destroy_menu(menu_t *menu)
 {
-    sfTexture_destroy(menu->obj->background->texture);
     sfTexture_destroy(menu->obj->button->texture);
-    sfSprite_destroy(menu->obj->background->sprite);
     sfSprite_destroy(menu->obj->button->sprite);
     destroy_music(menu);
 }
@@ -36,6 +34,8 @@ void destroy_basic_element_of_play(play_t *play)
     sfSprite_destroy(play->obj->background->sprite);
     sfSprite_destroy(play->location->tower->sprite);
     sfSprite_destroy(play->location->circle->sprite);
+    sfTexture_destroy(play->state->texture);
+    sfSprite_destroy(play->state->sprite);
 }
 
 void destroy_enemy(enemy_t *enemy)
@@ -46,12 +46,16 @@ void destroy_enemy(enemy_t *enemy)
     sfSprite_destroy(enemy->b_life->sprite);
 }
 
-void destroy_castle(castle_t *castle)
+void destroy_castle(game_t *game)
 {
-    sfTexture_destroy(castle->body->texture);
-    sfTexture_destroy(castle->heart->texture);
-    sfSprite_destroy(castle->body->sprite);
-    sfSprite_destroy(castle->heart->sprite);
+    sfTexture_destroy(game->play->castle->body->texture);
+    sfTexture_destroy(game->play->castle->heart->texture);
+    sfSprite_destroy(game->play->castle->body->sprite);
+    sfSprite_destroy(game->play->castle->heart->sprite);
+    sfTexture_destroy(game->menu->htp->texture);
+    sfSprite_destroy(game->menu->htp->sprite);
+    sfTexture_destroy(game->menu->obj->background->texture);
+    sfSprite_destroy(game->menu->obj->background->sprite);
 
 }
 //enemy, heart, castle

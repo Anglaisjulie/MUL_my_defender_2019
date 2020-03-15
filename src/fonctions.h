@@ -26,6 +26,8 @@ static const int ERROR = 84;
 static const int KO = 0;
 static const int OK = 1;
 static const int DRAW = 2;
+static const int SUPP = -2;
+
 
 static const int BASIC = 11;
 static const int SLOW = 12;
@@ -40,6 +42,10 @@ static const int PLAY = 0;
 static const int INFO = 1;
 static const int EXIT = 2;
 static const int SETTINGS = 3;
+
+static const int VICTORY = 4;
+static const int LOSE = 5;
+static const int HTP = 6;
 
 static const int ON_BUTTON = 398;
 static const int OUTSIDE_BUTTON = 0;
@@ -79,6 +85,7 @@ typedef struct menu_s {
     int b;
     int *rect_button_a;
     int *rect_button_b;
+    basicobject_t *htp;
 } menu_t;
 
 typedef struct enemy_s {
@@ -117,6 +124,7 @@ typedef struct play_s {
     tower_t *tower_wall;
     tower_t *tower_profit;
     castle_t *castle;
+    basicobject_t *state;
     int coin;
 } play_t;
 
@@ -137,6 +145,8 @@ int game_loop(sfRenderWindow *, game_t *);
 int game_malloc_tower_location(game_t *);
 int game_malloc_text(game_t *);
 int game_malloc_enemy(game_t *);
+int game_malloc_state(game_t *);
+int game_malloc_htp(game_t *);
 int game_malloc(game_t *);
 void create_game(sfRenderWindow *, game_t *);
 void define_value(game_t *);
@@ -146,13 +156,13 @@ void define_value(game_t *);
 location_t init_location_tower(location_t *, float, float);
 void create_location_tower(game_t *);
 void display_location_tower(sfRenderWindow *, game_t *);
-basicobject_t *init_tower_basic(basicobject_t *, float, float, char *path);
+basicobject_t *init_tower_basic(basicobject_t *, float, float, char *);
 void create_tower_basic(game_t *);
-basicobject_t *init_tower_slow(basicobject_t *, float, float, char *path);
+basicobject_t *init_tower_slow(basicobject_t *, float, float, char *);
 void create_tower_slow(game_t *);
-basicobject_t *init_tower_profit(basicobject_t *, float, float, char *path);
+basicobject_t *init_tower_profit(basicobject_t *, float, float, char *);
 void create_tower_profit(game_t *);
-basicobject_t *init_tower_wall(basicobject_t *, float, float, char *path);
+basicobject_t *init_tower_wall(basicobject_t *, float, float, char *);
 void create_tower_wall(game_t *);
 void display_tower(sfRenderWindow *, game_t *);
 void create_tower(game_t *);
@@ -199,7 +209,9 @@ void initialize_rect(basicobject_t *);
 void destroy_menu(menu_t *);
 void action_menu(sfRenderWindow *, game_t *, int);
 void action_play(sfRenderWindow *, game_t *);
-
+basicobject_t *init_htp(basicobject_t *);
+void create_htp(game_t *);
+void display_htp(sfRenderWindow *, game_t *);
 
 //MUSIC :
 void music_menu(menu_t *);
@@ -210,6 +222,12 @@ void create_background_play(game_t *);
 
 //ERROR MANAGEMENT
 
+//WIN, LOSE
+void victory(game_t *);
+void lose(game_t *);
+basicobject_t init_victory_lose(basicobject_t *, char *, int);
+void create_victory_lose(game_t *);
+void display_state(sfRenderWindow *, game_t *);
 
 //ENEMY
 basicobject_t *init_enemy(enemy_t *, int);
@@ -219,10 +237,10 @@ void display_enemy(sfRenderWindow *, game_t *);
 void enemy_move(enemy_t *, int);
 void path_x(enemy_t *, sfVector2f, int);
 void path_y(enemy_t *, sfVector2f, int);
-void kill_enemy_with_castle(play_t *, int);
+void kill_enemy_with_castle(play_t *, times_t *, int);
 basicobject_t *init_life_enemy(enemy_t *, int);
 void create_life_enemy(enemy_t *);
-void remove_life_enemy(play_t *, int);
+void remove_life_enemy(play_t *, times_t *, int);
 
 //DAMAGE
 basicobject_t *init_circle(location_t *, float, float, int);
@@ -238,7 +256,7 @@ void destroy_basic_element_of_play(play_t *);
 void destroy_music(menu_t *);
 void destroy_game(game_t *, sfRenderWindow *);
 void destroy_enemy(enemy_t *);
-void destroy_castle(castle_t *);
+void destroy_castle(game_t *);
 void condition_destroy_menu(menu_t *);
 
 //SCORE

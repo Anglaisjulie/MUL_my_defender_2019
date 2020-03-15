@@ -27,7 +27,7 @@ void put_location_basic(sfRenderWindow *window, game_t *game, int n)
         game->play->tower_basic[0].activated = KO;
         game->play->location[n].type = BASIC;
         game->play->location[n].full = KO;
-        game->play->coin -= 50;
+        game->play->coin -= 10;
     }
 }
 
@@ -51,7 +51,7 @@ void put_location_profit(sfRenderWindow *window, game_t *game, int n)
         game->play->tower_profit[0].activated = KO;
         game->play->location[n].full = KO;
         game->play->location[n].type = PROFIT;
-        game->play->coin -= 50;
+        game->play->coin -= 30;
     }
 }
 
@@ -75,7 +75,7 @@ void put_location_slow(sfRenderWindow *window, game_t *game, int n)
         game->play->tower_slow[0].activated = KO;
         game->play->location[n].type = SLOW;
         game->play->location[n].full = KO;
-        game->play->coin -= 50;
+        game->play->coin -= 15;
     }
 }
 
@@ -99,7 +99,7 @@ void put_location_wall(sfRenderWindow *window, game_t *game, int n)
         game->play->tower_wall[0].activated = KO;
         game->play->location[n].type = WALL;
         game->play->location[n].full = KO;
-        game->play->coin -= 50;
+        game->play->coin -= 40;
     }
 }
 

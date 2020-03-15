@@ -19,9 +19,16 @@ void option_menu_map(sfRenderWindow *window, game_t *game)
         action_play(window, game);
     }
     if (game->menu->location == INFO) {
+        sfRenderWindow_drawSprite(window, game->menu->obj->background->sprite,
+                                                                        NULL);
+        display_htp(window, game);
     }
     if (game->menu->location == SETTINGS) {
     }
+    if (game->menu->location == VICTORY)
+        display_state(window, game);
+    if (game->menu->location == LOSE)
+        display_state(window, game);
 }
 
 void action_menu(sfRenderWindow *window, game_t *game, int start)
@@ -49,6 +56,8 @@ void action_play(sfRenderWindow *window, game_t *game)
     display_text(window, game);
     display_coin(window, game);
     display_life(window, game);
+    lose(game);
+    victory(game);
     upgrade_score(game);
     upgrade_coin(game);
 }

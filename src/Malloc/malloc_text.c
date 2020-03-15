@@ -17,3 +17,10 @@ int game_malloc_text(game_t *game)
         return (ERROR);
     return (0);
 }
+
+int game_malloc_state(game_t *game)
+{
+    game->play->state = malloc(sizeof(basicobject_t) * 2);
+    if (game->play->state == NULL)
+        return (ERROR);
+}

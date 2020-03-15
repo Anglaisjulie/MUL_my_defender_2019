@@ -20,7 +20,6 @@ basicobject_t *init_enemy(enemy_t *enemy, int n)
     sfSprite_setPosition(enemy[n].body->sprite, enemy[n].body->vector);
     enemy[n].body->rect = rect;
     sfSprite_setTextureRect(enemy[n].body->sprite, enemy[n].body->rect);
-    enemy[n].life = 100;
     return (enemy[n].body);
 }
 
@@ -45,12 +44,11 @@ void enemy_animation(sfRenderWindow *window, game_t *game, int n)
                                             game->play->enemy[n].body->rect);
         sfClock_restart(game->play->enemy[n].clock);
     }
-    if (position.x != 1500 && game->play->enemy[n].life != 0) {
+    if (position.x != 1500 && game->play->enemy[n].life != SUPP) {
         sfRenderWindow_drawSprite
                             (window, game->play->enemy[n].body->sprite, NULL);
         sfRenderWindow_drawSprite
                             (window, game->play->enemy[n].b_life->sprite, NULL);
-        game->play->coin += 15;
     }
 }
 
@@ -59,6 +57,6 @@ void display_enemy(sfRenderWindow *window, game_t *game)
     for (int i = 0; i != NB_ENEMY; i++) {
         enemy_animation(window, game, i);
         enemy_move(game->play->enemy, i);
-        kill_enemy_with_castle(game->play, i);
+        kill_enemy_with_castle(game->play, game->time, i);
     }
 }

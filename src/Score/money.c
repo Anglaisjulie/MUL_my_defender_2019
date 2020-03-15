@@ -24,7 +24,7 @@ void create_money(game_t *game)
 
 void upgrade_coin(game_t *game)
 {
-    static char *coin = NULL;
+    char *coin = NULL;
 
     coin = my_itoa(game->play->coin);
     sfText_setString(game->score->nb_coin, coin);

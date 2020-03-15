@@ -26,6 +26,7 @@ FILE_LIST =		main.c 														\
 				Menu/menu.c 												\
 				Menu/menu_event.c 											\
 				Menu/music_menu.c 											\
+				Menu/how_to_play.c 											\
 				Menu/option_of_menu.c 										\
 				Tower/tower_wall.c											\
 				Tower/tower_basic.c											\
@@ -44,6 +45,7 @@ FILE_LIST =		main.c 														\
 				Enemy/life_enemy.c 											\
 				Enemy/kill_enemy.c 											\
 				Damage/create_circle.c 										\
+				Damage/victory_lose.c 										\
 				Damage/enemy_in_circle.c 									\
 				Score/score.c												\
 				destroy.c 													\
