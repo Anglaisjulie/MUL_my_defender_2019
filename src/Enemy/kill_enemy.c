@@ -15,6 +15,7 @@ void kill_enemy_with_castle(play_t *play, int n)
         play->enemy[n].life = 0;
         play->castle->life -= 1;
     }
+    remove_life_enemy(play, n);
     option_heart_one(play);
     option_heart_two(play);
     option_heart_three(play);
@@ -33,4 +34,20 @@ void damage_enemy(game_t *game)
             e++;
         enemy_in_circle(game, i, e);
     }
+}
+
+void remove_life_enemy(play_t *play, int n)
+{
+    if (play->enemy[n].life == 500)
+        play->enemy[n].b_life->rect.left = 0;
+    if (play->enemy[n].life <= 400)
+        play->enemy[n].b_life->rect.left = 74;
+    if (play->enemy[n].life <= 300)
+        play->enemy[n].b_life->rect.left = 148;
+    if (play->enemy[n].life <= 200)
+        play->enemy[n].b_life->rect.left = 222;
+    if (play->enemy[n].life <= 100)
+        play->enemy[n].b_life->rect.left = 296;
+    sfSprite_setTextureRect(play->enemy[n].b_life->sprite,
+                                            play->enemy[n].b_life->rect);
 }

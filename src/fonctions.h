@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 #define NB_BUTTON (4)
-#define NB_ENEMY (50)
+#define NB_ENEMY (10)
 #define NB_TOWER (6)
 #define NB_LOCATION (5)
 #define NB_HEART (3)
@@ -212,7 +212,7 @@ void create_background_play(game_t *);
 //ENEMY
 basicobject_t *init_enemy(enemy_t *, int);
 void create_enemy(enemy_t *);
-void enemy_animation(sfRenderWindow *, enemy_t *, int);
+void enemy_animation(sfRenderWindow *, game_t *, int);
 void display_enemy(sfRenderWindow *, game_t *);
 void enemy_move(enemy_t *, int);
 void path_x(enemy_t *, sfVector2f, int);
@@ -220,6 +220,7 @@ void path_y(enemy_t *, sfVector2f, int);
 void kill_enemy_with_castle(play_t *, int);
 basicobject_t *init_life_enemy(enemy_t *, int);
 void create_life_enemy(enemy_t *);
+void remove_life_enemy(play_t *, int);
 
 //DAMAGE
 basicobject_t *init_circle(location_t *, float, float, int);

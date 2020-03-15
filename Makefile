@@ -72,6 +72,7 @@ clean:
 	$(RM) src/Score/*.o
 	$(RM) src/Malloc/*.o
 	$(RM) src/Damage/*.o
+	$(RM) src/Lib/*.o
 
 fclean: clean
 	$(RM) $(NAME)

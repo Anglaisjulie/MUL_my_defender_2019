@@ -42,6 +42,8 @@ void destroy_enemy(enemy_t *enemy)
 {
     sfTexture_destroy(enemy->body->texture);
     sfSprite_destroy(enemy->body->sprite);
+    sfTexture_destroy(enemy->b_life->texture);
+    sfSprite_destroy(enemy->b_life->sprite);
 }
 
 void destroy_castle(castle_t *castle)

@@ -33,9 +33,9 @@ void type_of_damage(game_t *game, int n, int e)
     if (game->play->location[n].type == BASIC)
         game->play->enemy[e].life -= 1;
     if (game->play->location[n].type == PROFIT)
-        game->play->enemy[e].life -= 2;
-    if (game->play->location[n].type == SLOW)
         game->play->enemy[e].life -= 4;
+    if (game->play->location[n].type == SLOW)
+        game->play->enemy[e].life -= 2;
     if (game->play->location[n].type == WALL)
         game->play->enemy[e].life -= 5;
 }
