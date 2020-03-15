@@ -22,7 +22,7 @@ basicobject_t *init_tower_slow
 void create_tower_slow(game_t *game)
 {
     game->play->tower_slow[0].body = init_tower_slow
-    (game->play->tower_slow[0].body, 1650.0, 250.0, "picture/tower-ice.png");
+    (game->play->tower_slow[0].body, 1555.0, 200.0, "picture/dtls_slow.png");
     game->play->tower_slow[1].body = init_tower_slow
     (game->play->tower_slow[1].body, 68.0, 330.0, "picture/tower-ice.png");
     game->play->tower_slow[2].body = init_tower_slow

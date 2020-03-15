@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 #define NB_BUTTON (4)
-#define NB_ENEMY (3)
+#define NB_ENEMY (50)
 #define NB_TOWER (6)
 #define NB_LOCATION (5)
 #define NB_HEART (3)

@@ -22,7 +22,7 @@ basicobject_t *init_tower_basic
 void create_tower_basic(game_t *game)
 {
     game->play->tower_basic[0].body = init_tower_basic
-    (game->play->tower_basic[0].body, 1650.0, 50.0, "picture/tower-tesla.png");
+    (game->play->tower_basic[0].body, 1555.0, 0.0, "picture/dtls_basic.png");
     game->play->tower_basic[1].body = init_tower_basic
     (game->play->tower_basic[1].body, 68.0, 285.0, "picture/tower-tesla.png");
     game->play->tower_basic[2].body = init_tower_basic

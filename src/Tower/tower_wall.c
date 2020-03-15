@@ -22,7 +22,7 @@ basicobject_t *init_tower_wall
 void create_tower_wall(game_t *game)
 {
     game->play->tower_wall[0].body = init_tower_wall
-    (game->play->tower_wall[0].body, 1650.0, 650.0, "picture/tower-magic.png");
+    (game->play->tower_wall[0].body, 1555.0, 600.0, "picture/dtls_wall.png");
     game->play->tower_wall[1].body = init_tower_wall
     (game->play->tower_wall[1].body, 68.0, 310.0, "picture/tower-magic.png");
     game->play->tower_wall[2].body = init_tower_wall

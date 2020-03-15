@@ -22,8 +22,8 @@ basicobject_t *init_tower_profit
 void create_tower_profit(game_t *game)
 {
     game->play->tower_profit[0].body = init_tower_profit
-    (game->play->tower_profit[0].body, 1650.0, 450.0,
-                                                    "picture/tower-canon.png");
+    (game->play->tower_profit[0].body, 1555.0, 400.0,
+                                                    "picture/dtls_profit.png");
     game->play->tower_profit[1].body = init_tower_profit
     (game->play->tower_profit[1].body, 68.0, 320.0, "picture/tower-canon.png");
     game->play->tower_profit[2].body = init_tower_profit
