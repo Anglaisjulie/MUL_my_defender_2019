@@ -15,8 +15,5 @@ int game_malloc_text(game_t *game)
     game->time = malloc(sizeof(times_t));
     if (game->time == NULL)
         return (ERROR);
-    game->coin = malloc(sizeof(coin_t));
-    if (game->coin == NULL)
-        return (ERROR);
     return (0);
 }

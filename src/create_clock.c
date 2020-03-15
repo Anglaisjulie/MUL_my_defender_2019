@@ -11,6 +11,5 @@ void create_clock(game_t *game)
 {
     game->time->clock = sfClock_create();
     game->play->enemy->clock = sfClock_create();
-    game->coin->clock = sfClock_create();
     game->time->time = sfClock_getElapsedTime(game->time->clock);
 }

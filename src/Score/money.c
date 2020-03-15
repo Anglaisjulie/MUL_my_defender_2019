@@ -26,15 +26,8 @@ void upgrade_coin(game_t *game)
 {
     static char *coin = NULL;
 
-    game->coin->time = sfClock_getElapsedTime(game->coin->clock);
-    game->coin->seconds = game->coin->time.microseconds / 100000;
-    coin = my_itoa(game->coin->coin);
-
-    if (game->coin->seconds > 50.0) {
-        game->coin->coin = game->coin->coin + 10;
-        sfText_setString(game->score->nb_coin, coin);
-        sfClock_restart(game->coin->clock);
-    }
+    coin = my_itoa(game->play->coin);
+    sfText_setString(game->score->nb_coin, coin);
 }
 
 void display_coin(sfRenderWindow *window, game_t *game)
