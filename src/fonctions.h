@@ -45,8 +45,16 @@ static const int ON_BUTTON = 398;
 static const int OUTSIDE_BUTTON = 0;
 
 
+typedef struct coin_s {
+    int coin;
+    float seconds;
+    sfTime time;
+    sfClock *clock;
+} coin_t;
+
 typedef struct times_s {
     int score;
+    float seconds;
     sfTime time;
     sfClock *clock;
 } times_t;
@@ -54,6 +62,8 @@ typedef struct times_s {
 typedef struct score_s {
     sfText *score;
     sfText *nb_score;
+    sfText *coin;
+    sfText *nb_coin;
     sfFont *score_f;
 } score_t;
 
@@ -123,6 +133,7 @@ typedef struct game_s {
     play_t *play;
     score_t *score;
     times_t *time;
+    coin_t *coin;
 } game_t;
 
 //GAME INIT :
@@ -243,7 +254,12 @@ void condition_destroy_menu(menu_t *);
 void create_score(game_t *game);
 void upgrade_score(game_t *game);
 void create_clock(game_t *game);
-void display_text(sfRenderWindow *, game_t *);
+void display_text(sfRenderWindow *window, game_t *game);
+
+//MONEY
+void create_money(game_t *game);
+void upgrade_coin(game_t *game);
+void display_coin(sfRenderWindow *window, game_t *game);
 
 //LIB
 char *my_itoa(int);

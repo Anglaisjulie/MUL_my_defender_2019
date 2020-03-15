@@ -47,6 +47,8 @@ void action_play(sfRenderWindow *window, game_t *game)
     display_tower(window, game);
     check_draw_tower(window, game);
     display_text(window, game);
+    display_coin(window, game);
     display_life(window, game);
     upgrade_score(game);
+    upgrade_coin(game);
 }
