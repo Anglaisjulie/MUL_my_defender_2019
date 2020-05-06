@@ -1,5 +1,7 @@
 # MY DEFENDER
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c25e97c9ea7e4f3083f26f3bfae9e944)](https://app.codacy.com/manual/Anglaisjulie/MUL_my_defender_2019?utm_source=github.com&utm_medium=referral&utm_content=Anglaisjulie/MUL_my_defender_2019&utm_campaign=Badge_Grade_Dashboard)
+
 - **Binary name:** my_defender
 - **Repository name:** MUL_my_defender_2019
 - **Repository rights:** ramassage-tek, julie.anglais@epitech.eu, leo.soule@epitech.eu
