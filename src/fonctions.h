@@ -28,7 +28,6 @@ static const int OK = 1;
 static const int DRAW = 2;
 static const int SUPP = -2;
 
-
 static const int BASIC = 11;
 static const int SLOW = 12;
 static const int PROFIT = 13;
@@ -183,7 +182,6 @@ void option_heart_one(play_t *);
 void option_heart_two(play_t *);
 void option_heart_three(play_t *);
 void display_life(sfRenderWindow *, game_t *);
-
 
 //EVENT :
 void manage_event(sfRenderWindow *, game_t *);

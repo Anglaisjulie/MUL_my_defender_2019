@@ -13,8 +13,8 @@ void manage_event(sfRenderWindow *window, game_t *game)
 
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed) {
-            sfRenderWindow_close(window);
             condition_destroy_menu(game->menu);
+            sfRenderWindow_close(window);
         }
         if (event.type == sfEvtMouseButtonReleased) {
             manage_plan(window, game);

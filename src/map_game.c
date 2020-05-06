@@ -10,7 +10,7 @@
 void create_background_play(game_t *game)
 {
     game->play->obj->background->texture = sfTexture_createFromFile
-                                            ("picture/map2.png", NULL);
+                                                    ("picture/map2.png", NULL);
     game->play->obj->background->sprite = sfSprite_create();
     sfSprite_setTexture(game->play->obj->background->sprite,
                         game->play->obj->background->texture, 1);
